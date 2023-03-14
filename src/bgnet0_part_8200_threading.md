@@ -8,8 +8,8 @@ This is really useful if you have a function that is waiting for
 something to happen, and you need another function to keep running at
 the same time.
 
-Spoiler alert: we're going to use this in our multiuser chat client
-because it has to do two things at once, both of which block:
+This would be useful in a multiuser chat client because it has to do two
+things at once, both of which block:
 
 * Wait for the user to type in their chat message.
 * Wait for the server to send more messages.

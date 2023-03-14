@@ -9,7 +9,7 @@ We'll do this project in class as a pair-programming exercise.
 
 ## Demo Code
 
-[Grab the ZIP file containing the files here]().
+[fls[Grab the ZIP file containing the files here|select/select.zip]].
 
 The `select_client.py` file is already complete.
 

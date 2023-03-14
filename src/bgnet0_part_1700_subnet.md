@@ -10,7 +10,7 @@ Documentation subnets: 192.0.2.0/24, 198.51.100.0/24, 203.0.113.0/24
 are basically the same; it's just easier to learn with IPv4._]
 
 **If you're needing to review your Bitwise Operations, please see
-the [Appendix: Bitmap Operations](#appendix-bitmap).**
+the [Appendix: Bitwise Operations](#appendix-bitwise).**
 
 In this exploration:
 
