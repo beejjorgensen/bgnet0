@@ -1,9 +1,9 @@
-TITLE="Beej's Guide to C Programming"
+TITLE="Beej's Guide to Network Concepts"
 SUBTITLE=""
 AUTHOR='Brian “Beej Jorgensen” Hall'
-VERSION_DATE="v0.9.12, Copyright © February 13, 2023"
+VERSION_DATE="v0.0.2, Copyright © March 14, 2023"
 
-GUIDE_ID=bgc
+GUIDE_ID=bgnet0
 
 PDF_MAINFONT="Liberation Serif"
 PDF_SANSFONT="Liberation Sans"

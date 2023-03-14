@@ -53,7 +53,7 @@ Python programming knowledge under your belt.
 ## Official Homepage
 
 This official location of this document is (currently)
-[fl[https://beej.us/guide/bgc/|https://beej.us/guide/bgnet0/]].
+[fl[https://beej.us/guide/bgnet0/|https://beej.us/guide/bgnet0/]].
 
 ## Email Policy
 

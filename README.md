@@ -1,9 +1,10 @@
-# Beej's Guide to C
+# Beej's Guide to Network Concepts
 
-This is the source for Beej's Guide to C.
+This is the source for Beej's Guide to Network Concepts. Not Beej's
+Guide to Network Programming in C.
 
 If you merely wish to read the guide, please visit the [Beej's Guide to
-C](https://beej.us/guide/bgc/) website.
+Network Concepts](https://beej.us/guide/bgnet0/) website.
 
 This is here so that Beej has everything in a repo and so translators
 can easily clone it.
@@ -66,7 +67,4 @@ have to consider any copyright issues when merging changes.
 
 ## TODO
 
-* Projects
-* More info on reserved identifiers
-* Digraphs/Trigraphs
-* C23
+* Make sure all the references to class and grading are out of there
