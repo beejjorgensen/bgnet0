@@ -135,7 +135,7 @@ Let's consider what happens with an HTTP request.
 
 1. The web browser builds the HTTP request that looks like this:
 
-   ```
+   ``` {.default}
    GET / HTTP/1.1
    Host: example.com
    Connection: close

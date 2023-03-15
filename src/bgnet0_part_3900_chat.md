@@ -15,7 +15,7 @@ Here's a sample screenshot. The prompt where this user ("pat" in this
 example) is typing what they're about to say. The region above it is
 where all the output accumulates.
 
-```
+``` {.default}
 *** pat has joined the chat
 pat: Hello?
 *** leslie has joined the chat
@@ -65,7 +65,7 @@ server needs to maintain a packet buffer _for each client_.
 The server will be launched by specifying a port number on the command
 line. This is mandatory; there is no default port.
 
-```
+``` {.sh}
 python chat_server.py 3490
 ```
 
@@ -115,7 +115,7 @@ The client will be started by specifying the user's nickname, the server
 address, and the server port on the command line. These are all required
 arguments; there are no defaults.
 
-```
+``` {.sh}
 python chat_client.py chris localhost 3490
 ```
 
@@ -131,7 +131,7 @@ The client screen is split into two main regions:
 The client input line at the bottom of the screen should be the user's
 nickname followed by `>` and a space. The input takes place after that:
 
-```
+``` {.default}
 alice> this is some sample input
 ```
 
@@ -140,7 +140,7 @@ The output area of the screen has two main types of messages:
 * **Chat messages**: these show the speaker nickname followed by `:` and
   a space, and then the message.
 
-  ```
+  ``` {.default}
   pat: hows it going
   ```
 
@@ -149,7 +149,7 @@ The output area of the screen has two main types of messages:
   of `***` followed by a space, then the message. Joining and leaving
   messages are shown here:
 
-  ```
+  ``` {.default}
   *** leslie has joined the chat
   *** chris has left the chat
   ```
@@ -171,7 +171,7 @@ Currently, the only special input defined is `/q`:
 In the file `chatui.py`, there are four functions you need, and you can
 get them with this import:
 
-```
+``` {.py}
 from chatui import init_windows, read_command, print_message, end_windows
 ```
 
@@ -190,7 +190,7 @@ The functions are:
 
   For example:
 
-  ```
+  ``` {.py}
   s = read_command("Enter something> ")
   ```
 
@@ -215,7 +215,7 @@ used in the exact same way.
 
 Before you use it, you have to install the unicurses library:
 
-```
+``` {.sh}
 python3 -m pip install uni-curses
 ```
 
@@ -276,7 +276,7 @@ This MUST be sent before any other packets.
 
 From client to server:
 
-```
+``` {.json}
 {
     "type": "hello"
     "nick": "[user nickname]"
@@ -292,7 +292,7 @@ else's message).
 
 From client to server:
 
-```
+``` {.json}
 {
     "type": "chat"
     "message": "[message]"
@@ -301,7 +301,7 @@ From client to server:
 
 From server to clients:
 
-```
+``` {.json}
 {
     "type": "chat"
     "nick": "[sender nickname]"
@@ -317,7 +317,7 @@ packet sent earlier.
 
 The server sends this to all the clients when someone joins the chat.
 
-```
+``` {.json}
 {
     "type": "join"
     "nick": "[joiner's nickname]"
@@ -328,7 +328,7 @@ The server sends this to all the clients when someone joins the chat.
 
 The server sends this to all the clients when someone leaves the chat.
 
-```
+``` {.json}
 {
     "type": "leave"
     "nick": "[leaver's nickname]"
@@ -346,11 +346,11 @@ At the very least, I recommend branching from your working version so it
 doesn't get accidentally messed up!
 
 * Add direct messaging--if the user "pat" sends:
-  ```
+  ``` {.default}
   /message chris how's it going?
   ```
   then "chris" will see:
-  ```
+  ``` {.default}
   pat -> chris: how's it going?
   ```
   (What if the user doesn't exist? Maybe you need to define an error
@@ -359,11 +359,11 @@ doesn't get accidentally messed up!
 * Add a way to list the names of all the people in the chat
 
 * Add emotes--if the user "pat" sends:
-  ```
+  ``` {.default}
   /me goes out to buy some snacky cakes
   ```
   everyone else sees:
-  ```
+  ``` {.default}
   [pat goes out to buy some snacky cakes]
   ```
   (The right way to do this is to add a new packet type!)

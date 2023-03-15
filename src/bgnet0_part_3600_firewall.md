@@ -14,7 +14,7 @@ The upshot is that if someone in trying to connect to a port on the far
 side of a firewall, the firewall might prevent that connection depending
 on how it is configured.
 
-In this exploration, we'll be speaking conceptually about firewalls, but
+In this chapter, we'll be speaking conceptually about firewalls, but
 won't get into any specifics about practical configuration. There are
 many implementations of firewalls out there, and they all tend to have
 different methods of configuration.

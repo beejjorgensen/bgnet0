@@ -12,7 +12,7 @@ your computer.
 If your computer's clock is accurate, the numbers should be very close
 in the output:
 
-```
+``` {.default}
 NIST time  : 3874089043
 System time: 3874089043
 ```
@@ -37,7 +37,7 @@ If you're running the code frequently and want to be sure you've waited
 4 seconds, you can buffer the run with a `sleep` call on the command
 line:
 
-```
+``` {.sh}
 sleep 4; python3 timeclient.py
 ```
 
@@ -126,15 +126,15 @@ You can close the socket right after the data is received.
 
 The data is an integer encoded as 4 bytes, big-endian.
 
-Use the `.from_bytes()` method mentioned in the Exploration to convert
-the bytestream from `recv()` to a value.
+Use the `.from_bytes()` method mentioned in the earlier chapters to
+convert the bytestream from `recv()` to a value.
 
 
 ### 4. Print Out NIST's Time
 
 It should be in this format:
 
-```
+``` {.default}
 NIST time  : 3874089043
 ```
 
@@ -148,13 +148,13 @@ time.
 
 Print the system time right after the NIST time in the following format:
 
-```
+``` {.default}
 System time: 3874089043
 ```
 
 Here's the code:
 
-```
+``` {.py}
 def system_seconds_since_1900():
     """
     The time server returns the number of seconds since 1900, but Unix

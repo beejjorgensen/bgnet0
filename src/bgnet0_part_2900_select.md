@@ -1,9 +1,9 @@
 # Select
 
-In this exploration we're taking a look at the `select()` function. This
-is a function that looks at a whole set of sockets and lets you know
-which ones have sent you data. That is, which ones are ready to call
-`recv()` on.
+In this chapter we're taking a look at the `select()` function. This is
+a function that looks at a whole set of sockets and lets you know which
+ones have sent you data. That is, which ones are ready to call `recv()`
+on.
 
 This enables us to wait for data on a large number of sockets at the
 same time.
@@ -25,7 +25,7 @@ running.
 
 So we have this problem where if we do something like this:
 
-```
+``` {.py}
 data1 = s1.recv(4096)
 data2 = s2.recv(4096)
 data3 = s3.recv(4096)
@@ -48,7 +48,7 @@ And then it returns to you which sockets are ready and you can call
 
 First of all, you need the `select` module.
 
-```
+``` {.py}
 import select
 ```
 
@@ -66,7 +66,7 @@ Here's an example. `select()` takes three arguments and return three
 values. We'll just look at the first of each of these for now, ignoring
 the other ones.
 
-```
+``` {.py}
 read_set = {s1, s2, s3}
 
 ready_to_read, _, _ = select.select(ready_set, {}, {})
@@ -75,7 +75,7 @@ ready_to_read, _, _ = select.select(ready_set, {}, {})
 At this point, we can go through the sockets that are ready and receive
 data.
 
-```
+``` {.py}
 for s in ready_to_read:
     data = s.recv(4096)
 ```
@@ -98,7 +98,7 @@ listening socked to the set!_ When the listening socket shows up as
 Putting it all together, we get the core of any main loop that uses
 `select()`:
 
-```
+``` {.default}
 add the listener socket to the set
 
 main loop:
@@ -132,13 +132,13 @@ They correspond to:
 
 And the return values map to these, as well.
 
-```
+``` {.py}
 read, write, exc = select.select(read_set, write_set, exc_set)
 ```
 
 But again, for this project, we just use the first and ignore the rest.
 
-```
+``` {.py}
 read, _, _ = select.select(read_set, {}, {})
 ```
 

@@ -7,7 +7,7 @@ to this day in common use.
 
 An IPv4 address is written in "dots and numbers" notation, like so:
 
-```
+``` {.default}
 198.51.100.125
 ```
 
@@ -40,14 +40,14 @@ bits.
 
 They could write out something like:
 
-```
+``` {.default}
 Your subnet is 198.51.100.0 and there are 24 network bits and 8 host
 bits.
 ```
 
 But that's really verbose. So we use slash notation:
 
-```
+``` {.default}
 198.51.100.0/24
 ```
 
@@ -57,7 +57,7 @@ that mean?
 
 Drawing it out:
 
-```
+``` {.default}
 24 network bits
 ----------
 198.51.100.0
@@ -67,7 +67,7 @@ Drawing it out:
 
 Or converting all those numbers to binary:
 
-```
+``` {.default}
        24 network bits         | 8 host bits
 -------------------------------+---------
 11000110 . 00110011 . 01100100 . 00000000
@@ -80,7 +80,7 @@ indicate which host we're talking about.
 
 Here are some example IPs on our network:
 
-```
+``` {.default}
 198.51.100.2
 198.51.100.3
 198.51.100.4
@@ -90,7 +90,7 @@ Here are some example IPs on our network:
 
 But these two addresses have special meaning (see below):
 
-```
+``` {.default}
 198.51.100.0     Reserved
 198.51.100.255   Broadcast (see below)
 ```
@@ -103,13 +103,13 @@ host number.
 
 But there's no law about that. We could easily have a subnet like this:
 
-```
+``` {.default}
 198.51.100.96/28
 ```
 
 In that case we have:
 
-```
+``` {.default}
            28 network bits           | 4 host bits
 -------------------------------------+----
 11000110 . 00110011 . 01100100 . 0110 0000
@@ -126,7 +126,7 @@ For example, we could fill in those last [4
 bits](https://en.wikipedia.org/wiki/Nibble) with host number 2 (which is
 `0010` binary):
 
-```
+``` {.default}
            28 network bits           | 4 host bits
 -------------------------------------+----
 11000110 . 00110011 . 01100100 . 0110 0010
@@ -151,7 +151,7 @@ example) are going to be used to uniquely identify additional subnets
 within the ISP's subnet. And it sells those to customers, and each
 customer gets 11 bits for hosts (supporting 2048 hosts).
 
-```
+``` {.default}
   ISP network  |   Subnets  |    Hosts
    (12 bits)   |  (9 bits)  |  (11 bits)
 ---------------+------------+--------------
@@ -179,7 +179,7 @@ looks like an IP address with all the subnet bits set to `1`.
 For example, if we have the subnet `198.51.100.0/24`, that means we
 have:
 
-```
+``` {.default}
        24 network bits         | 8 host bits
 -------------------------------+---------
 11000110 . 00110011 . 01100100 . 00000000
@@ -188,7 +188,7 @@ have:
 
 Putting a `1` in for all the network bits, we end up with:
 
-```
+``` {.default}
        24 network bits         | 8 host bits
 -------------------------------+---------
 11111111 . 11111111 . 11111111 . 00000000
@@ -206,7 +206,7 @@ determine its destination subnet by ANDing the IP address with the
 subnet mask.
 
 
-```
+``` {.default}
          24 network bits         | 8 host bits
   -------------------------------+---------
   11000110 . 00110011 . 01100100 . 01000011    198. 51.100.67

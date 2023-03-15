@@ -5,8 +5,6 @@ handle multiple simultaneous connections.
 
 The client is already provided. You fill in the server.
 
-We'll do this project in class as a pair-programming exercise.
-
 ## Demo Code
 
 [fls[Grab the ZIP file containing the files here|select/select.zip]].
@@ -22,14 +20,14 @@ Your server should do the following:
 * When a client connects, the server prints out the client connection
   info in this form (it's the client IP and port number in front):
 
-  ```
+  ``` {.default}
   ('127.0.0.1', 61457): connected
   ```
 
 * When a client disconnects, the server prints out the late client's
   connection info in this form:
 
-  ```
+  ``` {.default}
   ('127.0.0.1', 61457): disconnected
   ```
 
@@ -41,7 +39,7 @@ Your server should do the following:
 * When a client sends data, the server should print out the length of
   the data as well as the raw bytestring object received:
 
-  ```
+  ``` {.default}
   ('127.0.0.1', 61457) 22 bytes: b'test1: xajrxttphhlwmjf'
   ```
 
@@ -49,13 +47,13 @@ Your server should do the following:
 
 Running the server:
 
-```
+``` {.sh}
 python select_server.py 3490
 ```
 
 Running the clients:
 
-```
+``` {.sh}
 python select_client.py alice localhost 3490
 python select_client.py bob localhost 3490
 python select_client.py chris localhost 3490
@@ -66,7 +64,7 @@ out with the data to help you identify which client it came from.
 
 Example output:
 
-```
+``` {.default}
 waiting for connections
 ('127.0.0.1', 61457): connected
 ('127.0.0.1', 61457) 22 bytes: b'test1: xajrxttphhlwmjf'

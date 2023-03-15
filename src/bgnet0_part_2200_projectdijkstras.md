@@ -125,7 +125,7 @@ particular path.
  
 Wikipedia offers this pseudocode, if that's easier to digest:
 
-```
+``` {.pseudocode}
  1  function Dijkstra(Graph, source):
  2
  3      for each vertex v in Graph.Vertices:
@@ -197,7 +197,7 @@ So what does that correspond to in the project?
 
 You have to implement this function:
 
-```
+``` {.py}
 def dijkstras_shortest_path(routers, src_ip, dest_ip):
 ```
 
@@ -219,7 +219,7 @@ Code to drive your function is already included in the skeleton code
 above. It will output to the console lines like this showing the source,
 destination, and all routers in between:
 
-```
+``` {.default}
 10.34.52.158 -> 10.34.166.1 ['10.34.52.1', '10.34.250.1', '10.34.166.1']
 ```
 
@@ -227,7 +227,7 @@ destination, and all routers in between:
 
 The graph dictionary in `routers` looks like this excerpt:
 
-```
+``` {.json}
 {
     "10.34.98.1": {
         "connections": {

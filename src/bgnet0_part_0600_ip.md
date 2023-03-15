@@ -51,14 +51,14 @@ bits are the host number.
 
 So an address like this:
 
-```
+``` {.default}
 00010111
 ```
 
 is split into two parts (because we said the first 6 bits were the
 network number):
 
-```
+``` {.default}
 Network  Host
 -------  ----
 000101   11
@@ -75,7 +75,7 @@ in binary).
 And with IP, it would actually only be two hosts, because hosts with
 all zero bits or all one bits are reserved.
 
-The next explorations will look at specific subnet examples for IPv4 and
+The next chapters will look at specific subnet examples for IPv4 and
 IPv6. The important part now is that each address is split into network
 and host parts, with the network part first.
 

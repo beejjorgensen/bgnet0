@@ -6,14 +6,14 @@ data.
 If you're not familiar with that format, [get a quick introduction at
 Wikipedia](https://en.wikipedia.org/wiki/JSON).
 
-In this exploration, we'll take a look at what it means to encode and
-decode JSON data.
+In this section, we'll take a look at what it means to encode and decode
+JSON data.
 
 ## JSON versus Native
 
 Here's a sample JSON object:
 
-```
+``` {.json}
 {
     "name": "Ada Lovelace",
     "country": "England",
@@ -23,7 +23,7 @@ Here's a sample JSON object:
 
 In Python, you can make a `dict` object that looks just like that:
 
-```
+``` {.json}
 d = {
     "name": "Ada Lovelace",
     "country": "England",
@@ -39,7 +39,7 @@ a string representation of the data in question.
 If you have a JSON string, you can turn it into Python native data with
 the `json.loads()` function.
 
-```
+``` {.py}
 import json
 
 data = json.loads('{ "name": "Ada" }')
@@ -50,7 +50,7 @@ print(data["name"])   # Prints Ada
 Likewise, if you have Python data, you can convert it into JSON string
 format with `json.dumps()`:
 
-```
+``` {.py}
 import json
 
 data = { "name": "Ada" }
@@ -67,7 +67,7 @@ together on one line.
 
 This code:
 
-```
+``` {.py}
 d = {
     "name": "Ada Lovelace",
     "country": "England",
@@ -79,20 +79,20 @@ json.dumps(d)
 
 outputs:
 
-```
+``` {.default}
 '{"name": "Ada Lovelace", "country": "England", "years": [1815, 1852]}'
 ```
 
 You can clean it up a bit by passing the `indent` argument to
 `json.dumps()`, giving it an indentation level.
 
-```
+``` {.py}
 json.dumps(d, indent=4)
 ```
 
 outputs:
 
-```
+``` {.default}
 {
     "name": "Ada Lovelace",
     "country": "England",

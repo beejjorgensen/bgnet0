@@ -91,7 +91,7 @@ do to get 100% on this project!
 
 The files are named like so:
 
-```
+``` {.default}
 tcp_addrs_0.txt
 tcp_addrs_0.dat
 
@@ -106,7 +106,7 @@ and so on, up to the index number 9. Each pair of files is related.
 You can look at the `tcp_addrs_n.txt` files in an editor and you'll see
 it contains a pair of random IP addresses, similar to the following:
 
-```
+``` {.default}
 192.0.2.207 192.0.2.244
 ```
 
@@ -123,10 +123,11 @@ data. It'll look like garbage in an editor. If you have a hexdump
 program, you can view the bytes with that. For example, here's the
 output from `hexdump`:
 
-```
+``` {.sh}
 hexdump -C tcp_data_0.dat
 ```
-```
+
+``` {.default}
 00000000  3f d7 c9 c5 ed d8 23 52  6a 15 32 96 50 d9 78 d8  |?.....#Rj.2.P.x.|
 00000010  67 be ba aa 2a 63 25 2d  7c 4f 2a 39 52 69 4b 75  |g...*c%-|O*9RiKu|
 00000020  42 39 53                                          |B9S|
@@ -183,7 +184,7 @@ data, as well, we need to include the IP header in our checksum.
 Except we don't include the real IP header. We make a fake one. And it
 looks like this (stolen straight out of the TCP RFC):
 
-```
+``` {.default}
 +--------+--------+--------+--------+
 |           Source Address          |
 +--------+--------+--------+--------+
@@ -223,7 +224,7 @@ If the source IP is `255.0.255.1` and the dest IP is `127.255.0.1`, and
 the TCP length is 3490 (hex 0x0da2), the pseudo header would be this
 sequence of bytes:
 
-```
+``` {.default}
  Source IP |  Dest IP  |Z |P |TCP length
            |           |  |  |  
 ff 00 ff 01 7f ff 00 01 00 06 0d a2
@@ -264,7 +265,7 @@ file and append them to the pseudoheader.
 This is easy: once you read in one of the `tcp_data_n.dat` files, just
 get the length of the data.
 
-```
+``` {.py}
 with open("tcp_data_0.dat", "rb") as fp:
     tcp_data = fp.read()
     tcp_length = len(tcp_data)  # <-- right here
@@ -284,7 +285,7 @@ received so that we can compare it against the one we compute!
 This diagram is massive, but we actually only care about one part. So
 skim this and move on to the next paragraph:
 
-```
+``` {.default}
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -324,7 +325,7 @@ the original checksum you'll compare against at the end of the day!**
 **You'll also need to generate a version of that TCP header and data
 where the checksum is set to zero. You can do it like this:**
 
-```
+``` {.py}
 tcp_zero_cksum = tcp_data[:16] + b'\x00\x00' + tcp_data[18:]
 ```
 
@@ -359,13 +360,13 @@ together.
 
 So if you have the bytes:
 
-```
+``` {.default}
 01 02 03 04 05 06
 ```
 
 we're going to think of that as 3 16-bit values:
 
-```
+``` {.default}
 0102 0304 0506
 ```
 
@@ -386,7 +387,7 @@ Conveniently, we have a copy of the TCP data we can use already: the
 version we made with the checksum zeroed out. Since we're going to be
 iterating over this anyway, might as well append the zero byte to that:
 
-```
+``` {.py}
 if len(tcp_zero_cksum) % 2 == 1:
     tcp_zero_cksum += b'\x00'
 ```
@@ -397,7 +398,7 @@ We can extract all those 16-bit values doing something like the
 following. Remember that the data to be checksummed includes the pseudo
 header and TCP data (with the checksum field set to zero):
 
-```
+``` {.py}
 data = pseudoheader + tcp_zero_cksum
 
 offset = 0   # byte offset into data
@@ -423,7 +424,7 @@ which is tricky in Python because it uses arbitrary-precision integers.
 But here's how we want to do it. In the following example, `tcp_data` is
 the TCP data padded to an even length with zero for the checksum.
 
-```
+``` {.py}
 # Pseudocode
 
 function checksum(pseudo_header, tcp_data)
@@ -467,7 +468,7 @@ corrupted.
 The output of your program should show which TCP data passes and which
 fails. That is, this should be your output:
 
-```
+``` {.default}
 PASS
 PASS
 PASS

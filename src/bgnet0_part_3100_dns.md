@@ -111,7 +111,7 @@ up to date.
 
 The root name servers themselves are named `a` to `m`:
 
-```
+``` {.default}
 a.root-servers.net
 b.root-servers.net
 c.root-servers.net
@@ -137,7 +137,7 @@ know is our list of root name servers.
    domain, you can contact any one of these name servers." It attaches a
    list of name servers who know about the `.com` domains:
 
-   ```
+   ``` {.default}
    a.gtld-servers.net
    b.gtld-servers.net
    c.gtld-servers.net
@@ -162,7 +162,7 @@ know is our list of root name servers.
    servers for `example.com`. You can talk to one of them. It attaches
    the list of name servers who know about the `example.com` domain:
 
-   ```
+   ``` {.default}
    a.iana-servers.net
    b.iana-servers.net
    ```
@@ -201,7 +201,7 @@ were a number of different name servers there with authority.
 When you write software that uses domain names, it calls a library to do
 the DNS lookup. You might have noticed that in Python when you called:
 
-```
+``` {.py}
 s.connect(("example.com", 80))
 ```
 

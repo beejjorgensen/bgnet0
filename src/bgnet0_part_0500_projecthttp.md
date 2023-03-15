@@ -47,7 +47,7 @@ defaults to UTF-8.)
 
 To convert from a Python string to an ISO-8859-1 sequence of bytes:
 
-```
+``` {.py}
 s = "Hello, world!"          # String
 b = s.encode("ISO-8859-1")   # Sequence of bytes
 ```
@@ -57,7 +57,7 @@ That sequence of bytes is ready to send over the socket.
 To convert from a byte sequence you received from a socket in ISO-8859-1
 format to a string:
 
-```
+``` {.py}
 s = b.decode("ISO-8859-1")
 ```
 
@@ -82,7 +82,7 @@ requests a web page, the server responds by sending it back.
 
 A simple HTTP request from a client looks like this:
 
-```
+``` {.default}
 GET / HTTP/1.1
 Host: example.com
 Connection: close
@@ -100,14 +100,14 @@ response."
 Ends-of-line are delimited by a Carriage Return/Linefeed combination. In
 Python or C, you write a CRLF like this:
 
-```
+``` {.py}
 "\r\n"
 ```
 
 If you were requesting a specific file, it would be on that first line,
 for example:
 
-```
+``` {.default}
 GET /path/to/file.html HTTP/1.1
 ```
 
@@ -118,7 +118,7 @@ this for this project.)
 
 A simple HTTP response from a server looks like:
 
-```
+``` {.default}
 HTTP/1.1 200 OK
 Content-Type: text/plain
 Content-Length: 6
@@ -148,13 +148,13 @@ before you test this.
 The goal with the client is that you can run it from the command line,
 like so:
 
-```
+``` {.sh}
 $ python webclient.py example.com
 ```
 
 for output like this:
 
-```
+``` {.default}
 HTTP/1.1 200 OK
 Age: 586480
 Cache-Control: max-age=604800
@@ -186,7 +186,7 @@ ALSO: you need to be able specify a port number to connect to on the
 command line. This defaults to port 80 if not specified. So you could
 connect to a webserver on a different port like so:
 
-```
+``` {.sh}
 $ python webclient.py example.com 8088
 ```
 
@@ -194,14 +194,13 @@ Which would get you to port 8088.
 
 First things first, you need the socket module in Python, so
 
-```
+``` {.py}
 import socket
 ```
 
 at the top. Then you have access to the functionality.
 
-See Exploration 2.1 for the overall approach, but here are some
-Python-specifics:
+Here are some Python-specifics:
 
 * Use `socket.socket()` to make a new socket. You don't have to pass it
   anything--the default parameter values work for this project.
@@ -212,7 +211,7 @@ Python-specifics:
   This function takes a tuple as an argument that contains the host and
   port to connect to, e.g.
 
-  ```
+  ``` {.py}
   ("example.com", 80)
   ```
 
@@ -233,7 +232,7 @@ Python-specifics:
   It will return a byte array of zero elements when the server closes
   the connection and there's no more data to read, e.g.:
 
-  ```
+  ``` {.py}
   d = s.recv(4096)  # Receive up to 4096 bytes
   if len(d) == 0:
       # all done!
@@ -243,7 +242,7 @@ Python-specifics:
 
 Test the client by hitting some websites with it:
 
-```
+``` {.sh}
 $ python webclient.py example.com
 $ python webclient.py google.com
 $ python webclient.py oregonstate.edu
@@ -255,7 +254,7 @@ The server should be named `webserver.py`.
 
 You'll launch the webserver from the command line like so:
 
-```
+``` {.sh}
 $ python webserver.py
 ```
 
@@ -263,13 +262,12 @@ and that should start it listening on port 28333.
 
 Code it so we could also specify an optional port number like this:
 
-```
+``` {.sh}
 $ python webserver.py 12399
 ```
 
-The server is going to follow the procedure in Exploration 2.1. It's
-going to run forever, handling incoming requests. (Forever means "until
-you hit CTRL-C".)
+The server is going to going to run forever, handling incoming requests.
+(Forever means "until you hit CTRL-C".)
 
 And it's only going to send back one thing no matter what the request
 is. Have it send back the simple server response, shown above.
@@ -285,7 +283,7 @@ Here are some Python specifics:
   can be left blank to have it choose a local address. For example, "Any
   local address, port 28333" would be passed like so:
 
-  ```
+  ``` {.py}
   ('', 28333)
   ```
 
@@ -296,7 +294,7 @@ Here are some Python specifics:
   new connection. (The old socket is still listening and you will call
   `s.accept()` on it again after you're done handling this request.)
 
-  ```
+  ``` {.py}
   new_conn = s.accept()
   new_socket = new_conn[0]  # This is what we'll recv/send on
   ```
@@ -333,7 +331,7 @@ Once it's working with `webclient.py`, try it with a web browser!
 
 Run the server on an unused port (choose a big one at random):
 
-```
+``` {.sh}
 $ python webserver.py 20123
 ```
 
@@ -390,7 +388,7 @@ field.
 
 For example, attempting to run `webclient.py google.com` results in:
 
-```
+``` {.default}
 HTTP/1.1 301 Moved Permanently
 Location: http://www.google.com/
 Content-Type: text/html; charset=UTF-8

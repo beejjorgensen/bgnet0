@@ -6,13 +6,13 @@ Documentation subnets: 192.0.2.0/24, 198.51.100.0/24, 203.0.113.0/24
 
 # IP Subnets and Subnet Masks
 
-[_Everything in this exploration will use IPv4, not IPv6. The concepts
+[_Everything in this chapter will use IPv4, not IPv6. The concepts
 are basically the same; it's just easier to learn with IPv4._]
 
 **If you're needing to review your Bitwise Operations, please see
 the [Appendix: Bitwise Operations](#appendix-bitwise).**
 
-In this exploration:
+In this chapter:
 
 * Address representation
 * Converting from dots-and-numbers to a value
@@ -55,7 +55,7 @@ Converting `c633640a` into decimal, we get: `3325256714`.
 
 So in a way, these all represent the same IP address:
 
-```
+``` {.default}
 198.51.100.10
 c6.33.64.0a
 c633640a
@@ -87,20 +87,20 @@ this with `.split()`.)
 
 The string:
 
-```
+``` {.py}
 "198.51.100.10"
 ```
 
 becomes the list of strings:
 
-```
+``` {.py}
 ["198", "51", "100", "10"]
 ```
 
 Now let's convert each of those to integers. (Python could do this with
 a loop and the `int()` function, or `map()`, or a list comprehension.)
 
-```
+``` {.py}
 [198, 51, 100, 10]
 ```
 
@@ -108,7 +108,7 @@ Now I'm going to write these numbers in hex because it makes the future
 steps more clear. But remember that they're just stored as numeric
 values, so Python won't print them as hex unless you ask it to.
 
-```
+``` {.py}
 [0xc6, 0x33, 0x64, 0x0a]
 ```
 
@@ -117,7 +117,7 @@ bitwise-OR and bitwise-shift.
 
 For the sake of example, let's hardcode the math:
 
-```
+``` {.py}
 (0xc6 << 24) | (0x33 << 16) | (0x64 << 8) | 0x0a
 ```
 
@@ -145,7 +145,7 @@ a little easier to see them: `0xc633640a`.
 Now let's look at that number shifted by 0 bits, 8 bits, 16 bits, and 24
 bits:
 
-```
+``` {.py}
 0xc633640a >> 24 == 0x000000c6
 0xc633640a >> 16 == 0x0000c633
 0xc633640a >> 8  == 0x00c63364
@@ -156,7 +156,7 @@ If you look at just the two digits on the right, you'll see they're the
 bytes of the original number:
 
 
-```
+``` {.py}
 0xc633640a >> 24 == 0x000000 c6
 0xc633640a >> 16 == 0x0000c6 33
 0xc633640a >> 8  == 0x00c633 64
@@ -166,7 +166,7 @@ bytes of the original number:
 So we're onto something, except looking at the right shift 8, for
 example, we get this:
 
-```
+``` {.py}
 0xc633640a >> 8  == 0x00c63364
 ```
 
@@ -180,7 +180,7 @@ it. Let's do a bitwise-AND on that number with the byte `0xff`, which is
 all 8 bits set to `1` and all bits over the first 8 have implied value
 `0`.
 
-```
+``` {.default}
   0x00c63364
 & 0x000000ff
 ------------
@@ -194,7 +194,7 @@ masked out?
 
 Now we can extract our digits:
 
-```
+``` {.py}
 (0xc633640a >> 24) & 0xff == 0x000000c6 == 0xc6
 (0xc633640a >> 16) & 0xff == 0x00000033 == 0x33
 (0xc633640a >> 8)  & 0xff == 0x00000064 == 0x64
@@ -216,7 +216,7 @@ number.
 Let's look at an example where the left 24 bits (3 bytes) are the
 subnet number and the right 8 bits (1 byte) holds the host number.
 
-```
+``` {.default}
  Subnet   | Host
           | 
 198.51.100.10
@@ -229,19 +229,19 @@ But I just said above, unilaterally, that there were 24 network bits in
 that IP address. That's not very concise. So they invented slash
 notation.
 
-```
+``` {.default}
 198.51.100.0/24    24 bits are used for subnet
 ```
 
 Or you could use it with an IP address:
 
-```
+``` {.default}
 198.51.100.10/24   Host 10 on subnet 198.51.100.0
 ```
 
 Let's try it with 16 bits for the network:
 
-```
+``` {.default}
 10.121.2.17/16    Host 2.17 on subnet 10.121.0.0
 ```
 
@@ -251,7 +251,7 @@ In those examples we used a multiple of 8 so it would align visually on
 a byte boundary, but there's no reason you can't have a fractional part
 of a byte left over for a subnet:
 
-```
+``` {.default}
 10.121.2.68/28    Host 4 on subnet 10.121.2.64
 ```
 
@@ -270,14 +270,14 @@ part of the IP represents the host number.
 
 Let's draw one in binary. We'll use this example IP address:
 
-```
+``` {.default}
 198.51.100.10/24   Host 10 on subnet 198.51.100.0
 ```
 
 Let's first convert to binary. (There's a hint here that the subnet mask
 is a bitwise-AND mask!)
 
-```
+``` {.default}
 11000110.00110011.01100100.00001010   198.51.100.10
 ```
 
@@ -285,7 +285,7 @@ And now, above it, let's draw a run of 24 `1`s (because this is a `/24`
 subnet) followed by 8 `0`s (because the IP address is 32 bits total).
 
 
-```
+``` {.default}
 11111111.11111111.11111111.00000000   255.255.255.0  subnet mask!
    
 11000110.00110011.01100100.00001010   198.51.100.10
@@ -302,8 +302,8 @@ is `255.255.255.0`? Or if I tell you it's `/28` that the mask is
 
 For a subnet `/24`, we need a run of 24 `1`s, followed by 8 `0`s.
 
-Look at the previous exploration for ways to generate runs of `1`s in
-binary and shift them over.
+Look at the [Appendix: Bitwise](#appendix-bitwise) for ways to generate
+runs of `1`s in binary and shift them over.
 
 Once you have that big binary number, it's a matter of switching it back
 to dots-and-numbers notation, using the technique we outlined, above.
@@ -315,7 +315,7 @@ subnet. It doesn't have to be a multiple of 8!
 
 If you're given an IP address with slash notation like this:
 
-```
+``` {.default}
 198.51.100.10/24   Host 10 on subnet 198.51.100.0
 ```
 
@@ -328,7 +328,7 @@ above.
 
 After that, let's take a look in binary and AND these together:
 
-```
+``` {.default}
   11111111.11111111.11111111.00000000   255.255.255.0  subnet mask
 & 11000110.00110011.01100100.00001010   198.51.100.10  IP address
 -------------------------------------
@@ -339,7 +339,7 @@ We can operate on the whole thing at once instead of a byte at a time,
 as well... we just need to cram those numbers together into a single
 value, like we did in the section above:
 
-```
+``` {.default}
   11111111111111111111111100000000   255.255.255.0  subnet mask
 & 11000110001100110110010000001010   198.51.100.10  IP address
 -------------------------------------

@@ -96,7 +96,7 @@ The checksum works exactly the same way as with TCP, except the UDP
 header is used. Compared to the TCP header, the UDP header is dead
 simple:
 
-```
+``` {.default}
  0      7 8     15 16    23 24    31  
 +--------+--------+--------+--------+ 
 |     Source      |   Destination   | 
@@ -207,7 +207,7 @@ sender.
 
 Here's an example server:
 
-```
+``` {.py}
 # UDP Server
 
 import sys
@@ -248,7 +248,7 @@ arrive running on localhost.)
 
 Example client that can communicate with the above server:
 
-```
+``` {.py}
 # UDP Client
 
 import socket

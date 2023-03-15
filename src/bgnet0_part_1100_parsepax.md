@@ -1,4 +1,4 @@
-# Parsing Packets
+# Parsing Packets {#parsing-packets}
 
 We've already seen some issues with receiving structured data from a
 server. You call `recv(4096)`, and you only get 20 bytes back. Or you
@@ -16,20 +16,20 @@ time.
 
 You call `recv(20)` and you get:
 
-```
+``` {.default}
 This is a test of th
 ```
 
 That's not a full sentence, so you can't print it yet. So you call
 `recv(20)` again:
 
-```
+``` {.default}
 This is a test of the emergency broadcas
 ```
 
 Still not a sentence. Call it again:
 
-```
+``` {.default}
 This is a test of the emergency broadcast system. This is on
 ```
 
@@ -44,7 +44,7 @@ How are we going to handle all this in a graceful way?
 You know what would make this easy? If we abstracted it out and then we
 could do something like this:
 
-```
+``` {.py}
 while the connection isn't closed:
     sentence = get_next_packet()
     print(sentence)
@@ -56,7 +56,7 @@ the next complete packet from the data stream, we can just use it.
 And if that code is complex enough, it could actually extract different
 types of packets from the stream:
 
-```
+``` {.py}
 packet = get_next_packet()
 
 if packet.type == PLAYER_POSITION:
@@ -95,7 +95,7 @@ you have a complete packet.
 In Python, remember to use the `global` keyword to access global
 variables, e.g.
 
-```
+``` {.py}
 packet_buffer = b''
 
 def get_next_packet(s):
@@ -110,33 +110,33 @@ global one.
 ## The Sentences Example Again
 
 Let's look at that sentences example from the beginning of this
-exploration.
+chapter.
 
 We'll call our `get_sentence()` function, and it'll look at all the data
 received so far and see if there's a period in it.
 
 So far we have:
 
-```
+``` {.default}
   
 ```
 
 Nothing. No data is received. There's no period in there so we don't
 have a sentence, so we have to call `recv(20)` again to get more bytes:
 
-```
+``` {.default}
 This is a test of th
 ```
 
 Still no period. Call `recv(20)` again:
 
-```
+``` {.default}
 This is a test of the emergency broadcas
 ```
 
 Still no period. Call `recv(20)` again:
 
-```
+``` {.default}
 This is a test of the emergency broadcast system. This is on
 ```
 
@@ -149,7 +149,7 @@ There's one! So we do two things:
 After step two, the first sentence is gone and the buffer looks like
 this:
 
-```
+``` {.default}
 This is on
 ```
 
@@ -163,14 +163,14 @@ And then call `get_sentence()` again!
 In `get_sentence()`, we look at the buffer again. (Remember, the buffer
 is global so it still has the data in it from the last call.)
 
-```
+``` {.default}
 This is on
 ```
 
 There's no period, so we call `recv(20)` again, but this time we only
 get 10 bytes back:
 
-```
+``` {.default}
 This is only a test.
 ```
 
@@ -181,7 +181,7 @@ empty, and then return it to the caller for printing.
 
 What if I call `recv(20)` and get this back:
 
-```
+``` {.default}
 Part 1. Part 2. Part
 ````
 
@@ -189,7 +189,7 @@ Well, it still works! The `get_sentence()` function will see the first
 period in there, strip off the first sentence from the buffer so it
 contains:
 
-```
+``` {.default}
 Part 2. Part
 ```
 
@@ -199,7 +199,7 @@ The next time you call `get_sentence()`, as always, the first thing it
 does is check to see if the buffer contains a full sentence. It does! So
 we strip it off:
 
-```
+``` {.default}
 Part
 ```
 
@@ -209,13 +209,13 @@ The next time you call `get_sentence()`, it sees no period in the
 buffer, so there is no complete sentence, so it calls `recv(20)` again
 to get more data.
 
-```
+``` {.default}
 Part 3. Part 4. Part 5.
 ```
 
 And now we have a complete sentence, so we strip it off the front:
 
-```
+``` {.default}
 Part 4. Part 5.
 ```
 
@@ -232,7 +232,7 @@ checking to see if it has an entire packet yet.
 
 Here's some pseudocode:
 
-```
+``` {.py}
 global buffer = b''    # Empty bytestring
 
 function get_packet():
@@ -256,7 +256,7 @@ from the front.
 For example, if you know the packet data is 12 bytes, you can slice it
 off with:
 
-```
+``` {.py}
 packet = buffer[:12]   # Grab the packet
 buffer = buffer[12:]   # Slice it off the front
 ```

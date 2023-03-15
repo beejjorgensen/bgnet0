@@ -5,15 +5,6 @@
 # Build products
 
 stage/
-src/bgc.html
-src/bgc.epub
-src/bgc-wide.html
-src/bg-css*.html
-src/bgc_*.pdf
-src/split
-src/split-wide
-src/bgc_temp*
-
 __pycache__
 
 # Misc

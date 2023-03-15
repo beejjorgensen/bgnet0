@@ -9,48 +9,49 @@ To make this happen, we need to install the `nmap` too.
 
 MacOS:
 
-```
+``` {.sh}
 brew install nmap
 ```
 
 Windows WSL:
 
-```
+``` {.sh}
 sudo apt-get update
 sudo apt-get install nmap
 ```
 
-## 1. Portscan All Common Ports
+1. **Portscan All Common Ports**
 
-This command will portscan 1000 of the most common ports:
+   This command will portscan 1000 of the most common ports:
 
-```
-nmap localhost
-```
+   ``` {.sh}
+   nmap localhost
+   ```
 
-What's the output?
+   What's the output?
 
-## 2. Portscan All Ports
+2. **Portscan All Ports**
 
-This will scan all the ports--starting from `0` on:
+   This will scan all the ports--starting from `0` on:
 
-```
-nmap -p0- localhost
-```
+   ``` {.sh}
+   nmap -p0- localhost
+   ```
 
-What's the output?
+   What's the output?
 
-## 3. Run a Server and Portscan
+3. **Run a Server and Portscan**
 
-Run any TCP server program that you wrote this quarter on some port.
+   Run any TCP server program that you wrote this quarter on some port.
 
-Run the all-port scan again (above).
+   Run the all-port scan again (above).
 
-* Notice your server's port in the output!
+   * Notice your server's port in the output!
 
-* Does your server crash with a "Connection reset" error? If so, why? If
-  not, speculate on why this might happen even if you didn't see it from
-  your server. (See the Exploration for this!)
+   * Does your server crash with a "Connection reset" error? If so, why?
+     If not, speculate on why this might happen even if you didn't see
+     it from your server. (See the [Port Scanning
+     chapter](#port-scanning) for this!)
 
 <!-- Rubric
 

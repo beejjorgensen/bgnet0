@@ -1,6 +1,6 @@
 # Appendix: Bitwise Operations {#appendix-bitwise}
 
-In this exploration, we'll refresh on _bitwise operations_.
+In this section, we'll refresh on _bitwise operations_.
 
 The bitwise operators in a language manipulate the bits of numbers.
 These operators act as if a number is represented in binary, even if its
@@ -60,7 +60,7 @@ These prefixes are:
 
 So let's write some numbers in different bases:
 
-```
+``` {.default}
   110101 decimal!
 0b110101 binary!
 0x110101 hex!
@@ -71,7 +71,7 @@ get `0xda2`.
 
 It's important to remember these two values are identical:
 
-```
+``` {.py}
 >>> 3490 == 0xda2
 True
 ```
@@ -91,21 +91,21 @@ all cases.)
 You can convert a value to a hex string with the `hex()` function. All
 "converted" values end up as strings. What else would they be?
 
-```
+``` {.py}
 >>> print(hex(3490))
 0xda2
 ```
 
 You can convert a value to a binary string with the `bin()` function.
 
-```
+``` {.py}
 >>> print(bin(3490))
 0b110110100010
 ```
 
 You can also use f-strings to get the job done:
 
-```
+``` {.py}
 >>> print(f"3490 is {3490:x} in hex and {3490:b} in binary")
 3490 is da2 in hex and 110110100010 in binary
 ```
@@ -114,7 +114,7 @@ The f-strings have a nice feature of being able to pad to a field width
 with zeros. Let's say you wanted an 8-digit hex number representation,
 you could do it like this:
 
-```
+``` {.py}
 >>> print(f"3490 is {3490:08x} in hex")
 3490 is 00000da2 in hex
 ```
@@ -136,7 +136,7 @@ Otherwise it's `0`.
 Let's do an example and AND two binary numbers together. Bitwise-AND uses
 the ampersand operator (`&`) in Python and many other languages.
 
-```
+``` {.default}
   0     0     1     1
 & 0   & 1   & 0   & 1
 ---   ---   ---   ---
@@ -151,7 +151,7 @@ decimal result is shown on the right, but this is derived from the binary
 representation. It's not easy to look at two decimal numbers and
 ascertain their bitwise-AND.)
 
-```
+``` {.default}
   0100011111000101010      146986
 & 1001111001001111000    & 324216
 ---------------------    --------
@@ -178,7 +178,7 @@ Otherwise it's `0`.
 Let's do an example and OR two binary numbers together. Bitwise-OR uses
 the pipe operator (`|`) in Python and many other languages.
 
-```
+``` {.default}
   0     0     1     1
 | 0   | 1   | 0   | 1
 ---   ---   ---   ---
@@ -193,7 +193,7 @@ decimal result is shown on the right, but this is derived from the binary
 representation. It's not easy to look at two decimal numbers and
 ascertain their bitwise-OR.)
 
-```
+``` {.default}
   0100011111000101010      146986
 | 1001111001001111000    | 324216
 ---------------------    --------
@@ -218,7 +218,7 @@ single number.
 Let's do an example and NOT a single bit number. Bitwise-NOT uses
 the tilde operator (`~`) in Python and many other languages.
 
-```
+``` {.default}
 ~ 0   ~ 1
 ---   ---
   1     0
@@ -232,7 +232,7 @@ result is shown on the right, but this is derived from the binary
 representation. It's not easy to look at two decimal numbers and
 ascertain their bitwise-NOT.)
 
-```
+``` {.default}
 ~ 0100011111000101010    ~ 146986
 ---------------------    --------
   1011100000111010101      377301
@@ -247,7 +247,7 @@ positive, bitwise-AND the result with the number of `1` bits you need to
 represent the final value. For instance, to get a byte with `37`
 inverted, you can do any of these:
 
-```
+``` {.py}
 (~37) & 255
 (~37) & 0xff
 (~37) & 0b11111111
@@ -262,14 +262,14 @@ forth by a certain number of bits.
 
 Check out how we're moving all the bits left by 2 in this example:
 
-```
+``` {.default}
 000111000111  left shifted by 2 is:
 011100011100
 ```
 
 Or we can shift right:
 
-```
+``` {.default}
 000111000111  right shifted by 2 is:
 000001110001  
 ```
@@ -289,7 +289,7 @@ the ends vanish forever.
 The operator is `<<` for left shift and `>>` for right shift in most
 languages (sorry, Ruby!). Let's do an example:
 
-```
+``` {.py}
 >>> v = 0b00000101
 >>> print(f"{v << 2:08b}")
 00010100
@@ -305,7 +305,7 @@ certain number of contiguous bits set to `1`.
 
 For example, what if I want a number with 12 bits set to one, namely:
 
-```
+``` {.py}
 0b111111111111
 ```
 
@@ -329,7 +329,7 @@ But how do we get to our bit run of `1`s from there?
 Check this out: what's 32 minus 1? 31. Not a trick question. But let's
 look at those in binary:
 
-```
+``` {.default}
 32   100000
 31   011111
 ```
@@ -338,13 +338,13 @@ Hey! It's a run of `1`s! Not only that, but it's a run of 5 `1`s, just
 like we wanted! (This is analogous to subtraction in decimal. 10,000 - 1
 is 9,999. Just in binary we roll over to all `1`s, not `9`s.)
 
-```
+``` {.py}
 run_of_ones = (1 << count) - 1
 ```
 
 Here's our run of 12 `1`s:
 
-```
+``` {.py}
 >>> bin((1 << 12) - 1)
 '0b111111111111'
 ```

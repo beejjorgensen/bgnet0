@@ -1,7 +1,7 @@
 # Network Address Translation (NAT)
 
-In this exploration we'll be taking a look at _network address
-translation_, or NAT.
+In this chapter we'll be taking a look at _network address translation_,
+or NAT.
 
 This is a service provided on a router which hides a "private" LAN from
 the rest of the world.
@@ -138,7 +138,7 @@ Let's use `192.168.1.1` as the private IP address on the router and
 
 So the LAN looks like this:
 
-```
+``` {.default}
 +----------+-------------+
 |  Local   |             |
 | Computer | 192.168.1.2 |>-------+
@@ -179,7 +179,7 @@ all port numbers were randomly chosen.)
 
 So while the original packet was:
 
-```
+``` {.default}
 192.168.1.2:1234 --> 203.0.113.24:80
 
      Local               Remote
@@ -189,7 +189,7 @@ So while the original packet was:
 the NAT router rewrites it to be the same destination, but the router as
 the source.
 
-```
+``` {.default}
 198.51.100.99:5678 --> 203.0.113.24:80
 
     NAT router             Remote
@@ -202,7 +202,7 @@ isn't originally from the router itself.
 So the destination replies with some HTTP data, sending it back to the
 router:
 
-```
+``` {.default}
 203.0.113.24:80 --> 198.51.100.99:5678
 
     Remote              NAT router
@@ -216,7 +216,7 @@ private IP on the LAN!
 So it translates the message so that it's no longer addressed to the
 router, but instead is sent to the private source IP recorded earlier:
 
-```
+``` {.default}
 203.0.113.24:80 --> 192.168.1.2:1234
 
     Remote               Local
@@ -244,7 +244,7 @@ rid of this nasty NAT middleman business.
 
 That said, there is a reserved IPv6 subnet for private networks:
 
-```
+``` {.default}
 fd00::/8
 ```
 

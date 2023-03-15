@@ -10,14 +10,14 @@ saves bandwidth.
 But the network can only send and receive bytes! How can we convert
 arbitrary numbers to single bytes?
 
-That's what this exploration is all about.
+That's what this chapter is all about.
 
 We want to:
 
 * Convert integers to byte sequences
 * Convert byte sequences back into integers
 
-And in this exploration we'll look at:
+And in this chapter we'll look at:
 
 * How numbers are represented by sequences of bytes
 * What order those bytes go in
@@ -73,7 +73,7 @@ Let's take a look what happens when we count up from 253 to 259 in a
 use two bytes (holding numbers from 0 to 255), with the corresponding
 decimal value represented on the right:
 
-```
+``` {.default}
   0 253   represents 253
   0 254   represents 254
   0 255   represents 255
@@ -92,14 +92,14 @@ We could compute the decimal value of the number by taking the first
 byte and multiplying it by 256, then adding on the value of the second
 byte:
 
-```
+``` {.default}
 1  * 256 +   3 = 259
 ```
 
 Or in this example, where two bytes with values `17` and `178` represent
 the value `1920`:
 
-```
+``` {.default}
 17 * 256 + 178 = 1920
 ```
 
@@ -122,7 +122,7 @@ In fact, let's do it for the example from the previous section.
 Remember: this is numerically equivalent--we just changed the numbers
 from decimal to binary. All other concepts are identical.
 
-```
+``` {.default}
 00000000 11111101    represents  11111101 (253 decimal)
 00000000 11111110    represents  11111110 (254 decimal)
 00000000 11111111    represents  11111101 (255 decimal)
@@ -140,20 +140,20 @@ Really all we've done is take the binary representation of a number and
 split it up into chunks of 8 bits. We could take any arbitrary number
 like 1,256,616,290,962 decimal and convert it to binary:
 
-```
+``` {.default}
 10010010010010100001010101110101010010010
 ```
 
 and do the same thing, split it up into chunks of 8 bits:
 
-```
+``` {.default}
 1 00100100 10010100 00101010 11101010 10010010
 ```
 
 Since we're packing it into bytes, we should pad that leading `1` out to
 8 bits like so:
 
-```
+``` {.default}
 00000001 00100100 10010100 00101010 11101010 10010010
 ```
 
@@ -168,7 +168,7 @@ different "languages" for representing a numeric value.
 Programmers like hex because it's very compatible with bytes (each byte
 is 2 hex digits). Let's do the same chart again, this time in hex:
 
-```
+``` {.default}
 00 fd    represents 00fd (253 decimal)
 00 fe    represents 00fe (254 decimal)
 00 ff    represents 00ff (255 decimal)
@@ -187,19 +187,19 @@ Ready to get a wrench thrown in the works?
 
 I just finished telling you that a number like (in hex):
 
-```
+``` {.default}
 45f2
 ```
 
 can be represented by these two bytes:
 
-```
+``` {.default}
 45 f2
 ```
 
 But guess what! Some systems will represent `0x45f2` as:
 
-```
+``` {.default}
 f2 45
 ```
 
@@ -248,7 +248,7 @@ Note that we pass two things into the `.to_bytes()` method: the number
 of bytes for the result, and `"big"` if it's to be big-endian, or
 `"little"` if it's to be little endian.
 
-```
+``` {.default}
 n = 3490
 
 bytes = n.to_bytes(2, "big")
@@ -256,11 +256,12 @@ bytes = n.to_bytes(2, "big")
 
 If we print them out we'll see the byte values:
 
-```
+``` {.default}
 for b in bytes:
     print(b)
 ```
-```
+
+``` {.default}
 13
 162
 ```
@@ -274,7 +275,7 @@ If you try to store the number 70,000 in two bytes, you'll get an
 
 Let's do one more example in hex:
 
-```
+``` {.py}
 n = 0xABCD
 bytes = n.to_bytes(2, "big")
 
@@ -284,7 +285,7 @@ for b in bytes:
 
 prints:
 
-```
+``` {.default}
 AB
 CD
 ```
@@ -300,7 +301,7 @@ out the bytestring to see what it looks like.
 Then we'll convert that bytestring back to a number and print it out to
 make sure it matches the original.
 
-```
+``` {.py}
 n = 0x0102
 bytes = n.to_bytes(2, "big")
 
@@ -309,7 +310,7 @@ print(bytes)
 
 gives the output:
 
-```
+``` {.py}
 b'\x01\x02'
 ```
 
@@ -322,7 +323,7 @@ bytes in the byte string have values `\x01` and `\x02`.
 
 Now let's convert that string back and print in hex:
 
-```
+``` {.py}
 v = int.from_bytes(bytes, "big")
 
 print(f"{v:04x}")
@@ -330,7 +331,7 @@ print(f"{v:04x}")
 
 And that prints:
 
-```
+``` {.default}
 0102
 ```
 

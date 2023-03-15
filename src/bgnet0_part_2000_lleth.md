@@ -46,7 +46,7 @@ the full ISO OSI layered network model.
 In the simplified Internet layered network model, the differentiation
 is not made, thus leading to the confusing terminology.
 
-More on this captivating tale later in this exploration.
+More on this captivating tale later in this chapter.
 
 ## MAC Addresses
 
@@ -58,7 +58,7 @@ An Ethernet MAC address comes in the form of 6 hex bytes (12 hex digits)
 separated by colons (or hyphens or periods). For example, these are all
 ways you might see a MAC address represented:
 
-```
+``` {.default}
 ac:d1:b8:df:20:85
 ac-d1-b8-df-20-85
 acd1.b8df.2085

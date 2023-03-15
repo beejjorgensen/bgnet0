@@ -177,7 +177,7 @@ the router we should forward that traffic to.
 In the case of the diagram, we'd add a route to the leftmost router like
 so (recalling that a `\24` network has netmask `255.255.255.0`):
 
-```
+``` {.default}
 Network:  192.168.1.0
 Mask:     255.255.255.0
 Next Hop: 10.0.0.2
@@ -189,7 +189,7 @@ router doesn't know where to send traffic for `192.168.1.0/24`, either.
 So we have to add a route to that middle router that sends it on the
 next hop, but this time out its `10.1.0.0/16` interface:
 
-```
+``` {.default}
 Network:  192.168.1.0
 Mask:     255.255.255.0
 Next Hop: 10.1.0.2

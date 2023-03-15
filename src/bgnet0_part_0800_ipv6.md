@@ -35,7 +35,7 @@ those numbers to get us to 128 bits.
 
 For example:
 
-```
+``` {.default}
 2001:0db8:6ffa:8939:163b:4cab:98bf:070a
 ```
 
@@ -43,7 +43,7 @@ Slash notation is used for subnetting just like IPv4. Here's an example
 with 64`bits for network (as specified with `/64`) and 64`bits for host
 (since `128-64=64`):
 
-```
+``` {.default}
 2001:0db8:6ffa:8939:163b:4cab:98bf:070a/64`
 ```
 
@@ -70,20 +70,20 @@ are large runs of zeros in them. So there are a couple shortcut rules.
 
 For example, we might have the address:
 
-```
+``` {.default}
 2001:0db8:6ffa:0000:0000:00ab:98bf:070a
 ```
 
 And we apply the first rule and get rid of leading zeros:
 
-```
+``` {.default}
 2001:db8:6ffa:0:0:ab:98bf:70a
 ```
 
 And we see we have a run of two `0`s in the middle, and we can replace
 that with two colons:
 
-```
+``` {.default}
 2001:db8:6ffa::ab:98bf:70a
 ```
 
@@ -99,7 +99,7 @@ particular LAN. These aren't commonly used in IPv4, but they're required
 in IPv6. The addresses are all on subnet `fe80::/10`.
 
 > Expanded out, this is:
-> ```
+> ``` {.default}
 > fe80:0000:0000:0000:0000:0000:0000:0000
 > ```
 
@@ -134,11 +134,11 @@ DNS maps human-readable names to IPv6 addresses, as well. You can look
 them up with `dig` by telling it to look for an `AAAA` record (which is
 what DNS calls IPv6 address records).
 
-```
+``` {.default}
 $ dig example.com AAAA
 ```
 
-```
+``` {.default}
 ; <<>> DiG 9.10.6 <<>> example.com AAAA
 ;; global options: +cmd
 ;; Got answer:
@@ -171,7 +171,7 @@ If you run your server on port 33490, you can connect to it in your web
 browser by putting the IPv6 address in square brackets. For example, to
 connect to localhost on address `::1`, you can:
 
-```
+``` {.default}
 http://[::1]:33490/
 ```
 

@@ -1,6 +1,6 @@
 # IP Routing
 
-This exploration is all about routing over IP. This task is handled by
+This chapter is all about routing over IP. This task is handled by
 computers called _routers_ that know how to direct traffic down
 different lines that are connected to them.
 

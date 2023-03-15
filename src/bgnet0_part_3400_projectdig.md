@@ -7,13 +7,13 @@ information from your default name server, or from any name server.
 
 On Macs:
 
-```
+``` {.sh}
 brew install bind
 ```
 
 On WSL:
 
-```
+``` {.sh}
 sudo apt install dnsutils
 ```
 
@@ -21,13 +21,13 @@ sudo apt install dnsutils
 
 Type:
 
-```
+``` {.sh}
 dig example.com
 ```
 
 and see what it gives back.
 
-```
+``` {.default}
 ; <<>> DiG 9.10.6 <<>> example.com
 ;; global options: +cmd
 ;; Got answer:
@@ -50,7 +50,7 @@ example.com.            79753   IN      A       93.184.216.34
 
 That's a lot of stuff. But let's look at these lines:
 
-```
+``` {.default}
 ;; ANSWER SECTION:
 example.com.            79753   IN      A       93.184.216.34
 ```
@@ -61,20 +61,20 @@ is an address record.
 You can get other record types, as well. What if you want the mail
 exchange server for `oregonstate.edu`? You can put that on the command line:
 
-```
+``` {.sh}
 dig mx oregonstate.edu
 ```
 
 We get:
 
-```
+``` {.default}
 ;; ANSWER SECTION:
 oregonstate.edu. 600 IN MX 5 oregonstate-edu.mail.protection.outlook.com.
 ```
 
 Or if we want the name servers for `example.com`, we can:
 
-```
+``` {.sh}
 dig ns example.com
 ```
 
@@ -82,7 +82,7 @@ dig ns example.com
 
 If you `dig` an `A` record, you'll see a number on the line:
 
-```
+``` {.default}
 ;; ANSWER SECTION:
 example.com.            78236   IN      A       93.184.216.34
 ```
@@ -97,7 +97,7 @@ have elapsed. (For reference, there are 86,400 seconds in a day.)
 If you get an entry that's cached in your name server, you'll see
 `AUTHORITY: 0` in the `dig` output:
 
-```
+``` {.default}
 ;; flags: qr rd ra ad; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
                                             ^^^^^^^^^^^^
 ```
@@ -120,7 +120,7 @@ Two popular free-to-use name servers are `1.1.1.1` and `8.8.8.8`.
 
 Let's ask one of them for the IP of `example.com`
 
-```
+``` {.sh}
 dig @8.8.8.8 example.com
 ```
 
@@ -133,13 +133,13 @@ different ages, after all.)
 There were a bunch of root name servers, so let's dig `example.com` at
 one of them:
 
-```
+``` {.sh}
 dig @l.root-servers.net example.com
 ```
 
 We get some interesting results:
 
-```
+``` {.default}
 com.                    172800  IN      NS      a.gtld-servers.net.
 com.                    172800  IN      NS      b.gtld-servers.net.
 com.                    172800  IN      NS      c.gtld-servers.net.
@@ -156,13 +156,13 @@ but here are some name servers that know what `.com` is."
 
 So we choose one of those and `dig` there:
 
-```
+``` {.sh}
 dig @c.gtld-servers.net example.com
 ```
 
 And we get:
 
-```
+``` {.default}
 example.com.            172800  IN      NS      a.iana-servers.net.
 example.com.            172800  IN      NS      b.iana-servers.net.
 ```
@@ -173,20 +173,20 @@ Same thing again, more `NS` name server records. This is the
 
 So we try again:
 
-```
+``` {.sh}
 dig @a.iana-servers.net example.com
 ```
 
 And at last we get the `A` record with the IP!
 
-```
+``` {.default}
 example.com.            86400   IN      A       93.184.216.34
 ```
 
 You can also use `+trace` on the command line to watch the entire query
 from start to end:
 
-```
+``` {.sh}
 dig +trace example.com
 ```
 

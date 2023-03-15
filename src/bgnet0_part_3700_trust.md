@@ -11,7 +11,7 @@ There are lots of bad actors out there. You have to take steps to
 prevent them from sending things that crash your server processes or,
 worse, give them access to your server machine itself.
 
-In this exploration we're going to take a high-level look at some issues
+In this chapter we're going to take a high-level look at some issues
 that might arise from users trying to send malicious data.
 
 The two big ideas here are:
@@ -70,7 +70,7 @@ via the shell.
 For example, in Python you can run the `ls` command to get a directory
 listing like this:
 
-```
+``` {.py}
 import os
 
 os.system("ls")
@@ -82,7 +82,7 @@ want to select.
 
 You run some code in your server like this:
 
-```
+``` {.py}
 os.system("mycommand " + user_input)
 ```
 
@@ -99,13 +99,13 @@ No. Do you see how?
 
 The user could pass the input:
 
-```
+``` {.default}
 1; cat /etc/passwd
 ```
 
 This would cause the following to be executed:
 
-```
+``` {.default}
 mycommand 1; cat /etc/passwd
 ```
 
@@ -125,14 +125,14 @@ queries.
 Let's say you build a SQL query in Python like this, where we get the
 variable `username` over the network in some way:
 
-```
+``` {.py}
 q = f"SELECT * FROM users WHERE name = '{username}'
 ```
 
 So if I enter `Alice` for the user, we get the following perfectly valid
 query:
 
-```
+``` {.sql}
 SELECT * FROM users WHERE name = 'Alice'
 ```
 
@@ -142,13 +142,13 @@ But let's _think like a villain_.
 
 What if we entered this:
 
-```
+``` {.sql}
 Alice' or 1=1 --
 ```
 
 Now we get this:
 
-```
+``` {.sql}
 SELECT * FROM users WHERE name = 'Alice' or 1=1 -- '
 ```
 
@@ -158,19 +158,17 @@ that shows all user information, not just Alice's.
 Not only that, but a naive implementation might also support the `;`
 command separator. If so, an attacker could do something like this:
 
-```
+``` {.sql}
 Alice'; SELECT * FROM passwords --
 ```
 
 Now we get this command:
 
-```
+``` {.sql}
 SELECT * FROM users WHERE name = 'Alice'; SELECT * FROM passwords -- '
 ```
 
 And we get the output from the `passwords` table.
-
-![Foiling the license plate scanner. Maybe.]()
 
 To avoid this trap, use _parameterized query generators_. This will be
 something in the SQL library that allows you to safely build a query
@@ -187,7 +185,7 @@ server appends that comment to the web page.
 
 So if the user enters:
 
-```
+``` {.default}
 This site has significant problems. I feel uncomfortable using it.
 
 Love, FriendlyTroll
@@ -197,7 +195,7 @@ That gets added to the end of the page.
 
 But if the user enters:
 
-```
+``` {.html}
 LOL
 <script>alert("Pwnd!")</script>
 ```

@@ -42,13 +42,13 @@ Here's what we'll do:
    For both this step and step 2, below, the information can be found
    with this command on Unix-likes:
 
-   ```
+   ``` {.sh}
    ifconfig
    ```
 
    and this command on Windows:
 
-   ```
+   ``` {.sh}
    ipconfig
    ```
 
@@ -67,7 +67,7 @@ Here's what we'll do:
    only either to or from your machine. Type this in the bar near the
    top of the window, just under the blue sharkfin button.
 
-   ```
+   ``` {.default}
    arp and eth.addr==[your MAC address]
    ```
 
@@ -88,7 +88,7 @@ Here's what we'll do:
 
    On the command line, `ping` another IP on your LAN:
 
-   ```
+   ``` {.sh}
    ping [IP address]
    ```
 
@@ -110,13 +110,13 @@ Here's what we'll do:
    In the timeline, the ARP request will look something like this
    excerpt (with different IP addresses, obviously):
 
-   ```
+   ``` {.default}
    ARP 60 Who has 192.168.1.230? Tell 192.168.1.1
    ```
 
    And if all goes well, you'll have a reply that looks like this:
 
-   ```
+   ``` {.default}
    ARP 42 192.168.1.230 is at ac:d1:b8:df:20:85
    ```
 
@@ -132,7 +132,7 @@ Here's what we'll do:
 
    Here's an example request (truncated for line length):
 
-   ```
+   ``` {.default}
    Frame 221567: 42 bytes on wire (336 bits), 42 bytes captured  [...]
    Ethernet II, Src: HonHaiPr_df:20:85 (ac:d1:b8:df:20:85), Dst: [...]
    Address Resolution Protocol (request)
@@ -152,7 +152,7 @@ Here's what we'll do:
 
    Here's an example reply (truncated for line length):
    
-   ```
+   ``` {.default}
    Frame 221572: 42 bytes on wire (336 bits), 42 bytes captured  [...]
    Ethernet II, Src: Apple_63:3c:ef (8c:85:90:63:3c:ef), Dst:    [...]
    Address Resolution Protocol (reply)

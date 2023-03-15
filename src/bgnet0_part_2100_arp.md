@@ -58,8 +58,8 @@ Here's what's going to happen:
 1. The source computer will broadcast a specialized Ethernet frame that
    contains the destination IP address. This is the _ARP request_.
 
-   (Remember the EtherType field from the previous exploration? ARP
-   packets have EtherType 0x0806 to differentiate them from regular data
+   (Remember the EtherType field from the previous chapter? ARP packets
+   have EtherType 0x0806 to differentiate them from regular data
    Ethernet packets.)
 
 2. All computers on the LAN receive the ARP request and examine it. But

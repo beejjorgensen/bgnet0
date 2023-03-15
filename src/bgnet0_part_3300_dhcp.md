@@ -20,7 +20,7 @@ That's what the _Dynamic Host Configuration Protocol_ (DHCP) is for.
 
 The overview:
 
-```
+``` {.default}
 Client --> [DHCPDISCOVER packet] --> Server
 
 Client <-- [DHCPOFFER packet] <-- Server

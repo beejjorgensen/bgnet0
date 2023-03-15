@@ -25,13 +25,13 @@ functions are implemented.
 If you go to your browser and enter a URL like this (substituting the
 port number of your running server):
 
-```
+``` {.default}
 http://localhost:33490/file1.txt
 ```
 
 The client will send a request to your server that looks like this:
 
-```
+``` {.default}
 GET /file1.txt HTTP/1.1
 Host: localhost
 Connection: close
@@ -52,7 +52,7 @@ Your server will:
 
 The response will look like this example file:
 
-```
+``` {.default}
 HTTP/1.1 200 OK
 Content-Type: text/html
 Content-Length: 357
@@ -110,13 +110,13 @@ In the `os.path` module, you'll find a function called
 [`.split()`](https://docs.python.org/3/library/os.path.html#os.path.split)
 that will pull a file name off a path.
 
-```
+``` {.py}
 os.path.split("/foo/bar/baz.txt")
 ```
 
 returns a tuple with two elements, the second of which is the file name:
 
-```
+``` {.py}
 ('/foo/bar', 'baz.txt')
 ```
 
@@ -149,7 +149,7 @@ to identify any kind of data.
 
 You put these right in the HTTP response in the `Content-Type` header:
 
-```
+``` {.default}
 Content-Type: application/pdf
 ```
 
@@ -162,13 +162,13 @@ Luckily,
 [`os.path.spltext()`](https://docs.python.org/3/library/os.path.html#os.path.splitext)
 gives us an easy way to pull the extension off a file name:
 
-```
+``` {.py}
 os.path.splitext('keyboardcat.gif')
 ```
 
 returns a tuple containing:
 
-```
+``` {.py}
 ('keyboardcat', '.gif')
 ```
 
@@ -182,7 +182,7 @@ You can just map the following extensions for this assignment:
 
 So if the file has a `.txt` extension, be sure to send back:
 
-```
+``` {.default}
 Content-Type: text/plain
 ```
 
@@ -191,7 +191,7 @@ in your response.
 If you really want to be correct, add `charset` to your header to
 specify the character encoding:
 
-```
+``` {.default}
 Content-Type: text/plain; charset=iso-8859-1
 ```
 
@@ -202,7 +202,7 @@ encoding.
 
 Here's some code to read an entire file and check for errors:
 
-```
+``` {.py}
 try:
     with open(filename) as fp:
         data = fp.read()   # Read entire file
@@ -220,7 +220,7 @@ number of bytes.
 The number of bytes will be send back in the `Content-Length` header,
 like so:
 
-```
+``` {.default}
 Content-Length: 357
 ```
 
@@ -237,20 +237,20 @@ In our case, we'll detect some kind of file open error (with the
 
 The `404` response is an HTTP response, except instead of
 
-```
+``` {.default}
 HTTP/1.1 200 OK
 ```
 
 our response will start with
 
-```
+``` {.default}
 HTTP/1.1 404 Not Found
 ```
 
 So when you try to open the file and it fails, you're going to just
 return the following (verbatim) and close the connection:
 
-```
+``` {.default}
 HTTP/1.1 404 Not Found
 Content-Type: text/plain
 Content-Length: 13
@@ -297,7 +297,7 @@ You can copy and paste these into files for testing purposes:
 
 ### `file1.txt`
 
-```
+``` {.default}
 This is a sample text file that has all kinds of words in it that
 seemingly go on for a long time but really don't say much at all.
 
@@ -307,7 +307,7 @@ the tradition. And then goes for a further sentence, besides.
 
 ### `file2.html`
 
-```
+``` {.html}
 <!DOCTYPE html>
 
 <html>
@@ -332,7 +332,7 @@ you're sending it out as the wrong MIME type! It should be
 The idea is that these URLs would retrieve the above files (with the
 appropriate port given):
 
-```
+``` {.default}
 http://localhost:33490/file1.txt
 http://localhost:33490/file2.html
 ```

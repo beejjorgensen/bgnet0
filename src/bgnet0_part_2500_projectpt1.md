@@ -77,7 +77,7 @@ Let's ping from PC0 to PC1 to make sure the network is connected.
 
 You should see successful ping output:
 
-```
+``` {.sh}
 C:\>ping 192.168.0.3
 
 Pinging 192.168.0.3 with 32 bytes of data:

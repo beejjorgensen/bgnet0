@@ -28,7 +28,7 @@ variables if you wish.
 test. To build a string in Python of a specific number of characters,
 you can:
 
-```
+``` {.py}
 long_str = "a" * 256   # Make a string of 256 "a"s
 ```
 
@@ -62,7 +62,7 @@ The length of the word is encoded as a big-endian 2-byte number.
 For example, the word "hello" with length 5 would be encoded as the
 following bytes (in hex):
 
-```
+``` {.default}
 length 5
   |
 +-+-+
@@ -79,7 +79,7 @@ letters.
 The word "hi" followed by "encyclopedia" would be encoded as two word
 packets, transmitted in the stream like so:
 
-```
+``` {.default}
 length 2   length 12
   |           |
 +-+-+       +-+-+
@@ -93,14 +93,14 @@ This function takes the connected socket as argument. It will return the
 next word packet (the length plus the word, as received) as a
 bytestring.
 
-It will follow the process outlined in [Exploration 4.2]() for
-extracting packets from a stream of data.
+It will follow the process outlined in the [Parsing Packets
+chapter](#parsing-packets) for extracting packets from a stream of data.
 
 For example, if the words were "hi" and "encyclopedia" from the example
 above, and we received the first 5 bytes, the packet buffer would
 contain:
 
-```
+``` {.default}
       h  i  
 00 02 68 69 00
 ```
@@ -111,7 +111,7 @@ bytes.
 We would extract and return the first word ("hi") and its length (bytes
 `00` `02`) and return this bytestring:
 
-```
+``` {.default}
       h  i
 00 02 68 69
 ```
@@ -119,7 +119,7 @@ We would extract and return the first word ("hi") and its length (bytes
 We'd also strip those bytes out of the packet buffer so that all that
 remained was the zero that was at the end.
 
-```
+``` {.default}
 00
 ```
 
@@ -127,7 +127,7 @@ At that point, lacking a complete word in the buffer, a subsequent call
 to the function would trigger a `recv(5)` for the next chunk of data,
 giving us:
 
-```
+``` {.default}
       e  n  c  y
 00 0C 65 6E 63 79
 ```
@@ -138,7 +138,7 @@ And so on.
 
 This function takes a complete word packet as input, such as:
 
-```
+``` {.default}
       h  i
 00 02 68 69
 ```

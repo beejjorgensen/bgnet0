@@ -4,7 +4,7 @@ In preparation for our subsequent project that finds routes across the
 network, we need to do some work in figuring out how IP addresses,
 subnet masks, and subnets all work together.
 
-In this project we'll put some of the work from the explorations into
+In this project we'll put some of the work from the chapters into
 practice. We'll:
 
 * Write functions to convert dots-and-numbers IP addresses into single
@@ -45,9 +45,6 @@ The descriptions of the functions are in the file in their respective
 docstrings. Be sure to pay special attention to the input and output
 _types_ in the examples shown there.
 
-Look at the explorations for this week for help with the various
-algorithms.
-
 Note that none of the functions need be more than 5-15 lines long. If
 you're getting a much bigger function implementation, you might be off
 track.
@@ -67,7 +64,7 @@ instead of the default main function if you uncomment it.
 
 If you uncomment `my_tests()`, you can run the program with:
 
-```
+``` {.sh}
 python netfuncs.py
 ```
 
@@ -80,7 +77,7 @@ code before you submit, as shown in the next section.
 
 You'll run it like this:
 
-```
+``` {.sh}
 python netfuncs.py example1.json
 ```
 
@@ -90,7 +87,7 @@ your functions on various parts of it.
 The output, included in `example1_output.txt`, should look exactly like
 this if everything is working correctly:
 
-```
+``` {.default}
 Routers:
      10.34.166.1: netmask 255.255.255.0: network 10.34.166.0
      10.34.194.1: netmask 255.255.255.0: network 10.34.194.0

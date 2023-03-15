@@ -1,6 +1,6 @@
 # Network Hardware
 
-In this exploration we'll take a look at a number of hardware networking
+In this chapter we'll take a look at a number of hardware networking
 components.
 
 Some of these you have at home or on your computer already.

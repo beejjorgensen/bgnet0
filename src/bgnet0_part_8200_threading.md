@@ -99,7 +99,7 @@ And you can wait for the thread to complete with its `.join()` method.
 Let's take a peek!
 
 <!-- read in the projects/threaddemo.py file here -->
-```
+``` {.py}
 import threading
 import time
 
@@ -143,7 +143,7 @@ for t in threads:
 
 And here's the output:
 
-```
+``` {.default}
 Running: Thread0 0
 Running: Thread1 0
 Running: Thread2 0
@@ -189,7 +189,7 @@ incoming messages from the server. So that should be a daemon thread.
 
 You can create a daemon thread like this:
 
-```
+``` {.py}
 t = threading.Thread(target=runner, daemon=True)
 ```
 
@@ -217,7 +217,7 @@ They want the sum total of all the sums of all the ranges.
 
 For example, if the ranges are:
 
-```
+``` {.py}
 [
     [1,5],
     [20,22]
@@ -233,7 +233,7 @@ We want to:
 They want the range sums and the total sum printed out. For the example
 above, they'd want it to print:
 
-```
+``` {.default}
 [15, 63]
 78
 ```
@@ -254,7 +254,7 @@ The main thread will:
   as the number of ranges (which is the same as the number of threads).
   Each thread has its own slot to store a result in the array.
 
-  ```
+  ``` {.py}
   result = [0] * n   # Create an array of `n` zeros
   ```
 
@@ -307,7 +307,7 @@ result in!
 
 Example input:
 
-```
+``` {.py}
 ranges = [
     [10, 20],
     [1, 5],
@@ -319,7 +319,7 @@ ranges = [
 
 Corresponding output:
 
-```
+``` {.default}
 [165, 15, 825, 3927, 136]
 5068
 ```
