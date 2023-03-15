@@ -1,7 +1,7 @@
 TITLE="Beej's Guide to Network Concepts"
 SUBTITLE=""
 AUTHOR='Brian “Beej Jorgensen” Hall'
-VERSION_DATE="v0.0.3, Copyright © March 14, 2023"
+VERSION_DATE="v0.0.4, Copyright © March 15, 2023"
 
 GUIDE_ID=bgnet0
 
@@ -38,6 +38,7 @@ COMMON_OPTS= \
 
 PDF_OPTS= \
 	-H latex/header_index.latex \
+	-H latex/header_bullets.latex \
 	-A latex/after_index.latex \
 	--pdf-engine=xelatex \
 	--variable mainfont=$(PDF_MAINFONT) \
