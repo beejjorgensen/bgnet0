@@ -1,4 +1,4 @@
-# Appendix: Multithreading {#appendix-theading}
+# Appendix: Multithreading {#appendix-threading}
 
 _Multithreading_ is the idea that a process can have multiple _threads_
 of execution. That is, it can be running a number of functions at the

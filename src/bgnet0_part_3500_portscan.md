@@ -1,4 +1,4 @@
-# Port Scanning {#port-scanning}
+# Port Scanning
 
 **A NOTE ON LEGALITY**: It's unclear whether or not it is legal to
 portscan a computer you do not own. We'll be doing all our portscanning

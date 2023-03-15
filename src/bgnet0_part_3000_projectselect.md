@@ -7,7 +7,7 @@ The client is already provided. You fill in the server.
 
 ## Demo Code
 
-[fls[Grab the ZIP file containing the files here|select/select.zip]].
+Grab [fls[this ZIP file|select/select.zip]] with all the input files.
 
 The `select_client.py` file is already complete.
 

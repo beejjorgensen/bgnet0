@@ -15,6 +15,8 @@ stage_build:
 	rm -rf $(STAGEDIR)
 	mkdir -p $(STAGEDIR)/pdf
 	mkdir -p $(STAGEDIR)/html
+	mkdir -p $(STAGEDIR)/html/split
+	mkdir -p $(STAGEDIR)/html/split-wide
 	mkdir -p $(STAGEDIR)/translations
 	mkdir -p $(STAGEDIR)/source
 
@@ -26,6 +28,12 @@ stage_books:
 	cp -v src/*.svg $(STAGEDIR)/html/ 2>/dev/null || :
 	cp -v src/*.png $(STAGEDIR)/html/ 2>/dev/null || :
 	cp -v src/*.jpg $(STAGEDIR)/html/ 2>/dev/null || :
+	cp -v src/*.svg $(STAGEDIR)/html/split/ 2>/dev/null || :
+	cp -v src/*.png $(STAGEDIR)/html/split/ 2>/dev/null || :
+	cp -v src/*.jpg $(STAGEDIR)/html/split/ 2>/dev/null || :
+	cp -v src/*.svg $(STAGEDIR)/html/split-wide/ 2>/dev/null || :
+	cp -v src/*.png $(STAGEDIR)/html/split-wide/ 2>/dev/null || :
+	cp -v src/*.jpg $(STAGEDIR)/html/split-wide/ 2>/dev/null || :
 
 stage_translations:
 	cp -v translations/*.pdf $(STAGEDIR)/translations 2>/dev/null || : 
@@ -34,10 +42,10 @@ stage_translations:
 stage_html_zips:
 	mkdir -p $(STAGEDIR)/html/$(PACKAGE)
 	cp -v src/split/* $(STAGEDIR)/html/$(PACKAGE)
-	( cd $(STAGEDIR)/html; zip -r $(PACKAGE).zip $(PACKAGE); mv $(PACKAGE) split )
+	( cd $(STAGEDIR)/html; zip -r $(PACKAGE).zip $(PACKAGE); mv $(PACKAGE)/* split; rmdir $(PACKAGE) )
 	mkdir -p $(STAGEDIR)/html/$(PACKAGE)
 	cp -v src/split-wide/* $(STAGEDIR)/html/$(PACKAGE)
-	( cd $(STAGEDIR)/html; zip -r $(PACKAGE)-wide.zip $(PACKAGE); mv $(PACKAGE) split-wide )
+	( cd $(STAGEDIR)/html; zip -r $(PACKAGE)-wide.zip $(PACKAGE); mv $(PACKAGE)/* split-wide; rmdir $(PACKAGE) )
 
 stage_examples:
 	cp -rv source/* $(STAGEDIR)/source
@@ -62,6 +70,8 @@ fastupload: all stage
 
 pristine: clean
 	rm -rf $(STAGEDIR)
+	$(MAKE) -C src $@
+	$(MAKE) -C source $@
 
 clean:
 	$(MAKE) -C src $@

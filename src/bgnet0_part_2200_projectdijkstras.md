@@ -89,6 +89,7 @@ Dijkstra's itself only builds the tree representing the shortest paths
 back to the start. We'll follow that shortest path tree later to find a
 particular path.
 
+<!--
 * Dijkstra's Algorithm to compute all shortest paths over a graph from a
   source point:
   * Initialization:
@@ -122,10 +123,11 @@ particular path.
           * Set the neighbor's `parent` to the current node.
         * [This process is called "relaxing". The node distances start
           at infinity and "relax" down to their shortest distances.]
+-->
  
 Wikipedia offers this pseudocode, if that's easier to digest:
 
-``` {.pseudocode}
+``` {.py}
  1  function Dijkstra(Graph, source):
  2
  3      for each vertex v in Graph.Vertices:

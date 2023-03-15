@@ -353,7 +353,7 @@ If you like these sorts of _bit-twiddling hacks_, you might enjoy the
 book [Hacker's
 Delight](https://en.wikipedia.org/wiki/Hacker%27s_Delight). Chapter 2,
 which covers a lot of these techniques had historically been distributed
-for free and is included [here]() under Fair Use.
+for free; you might be able to find a PDF floating around.
 
 ## Reflect
 

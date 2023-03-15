@@ -89,12 +89,10 @@ BGP can work in two different modes: internal BGP and external BGP. In
 internal mode, it acts as an interior gateway protocol, while external
 mode acts as an external gateway protocol.
 
-Here's a [great video from _Eye on
-Tech_](https://www.youtube.com/watch?v=A1KXPpqlNZ4) that concisely
+There's a [fl[great video from _Eye on
+Tech_|https://www.youtube.com/watch?v=A1KXPpqlNZ4]] that concisely
 covers it. I highly recommend spending the two minutes watching this to
-tie it all together:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/A1KXPpqlNZ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+tie it all together.
 
 ## Routing tables
 
@@ -201,7 +199,7 @@ When the packet arrives, the router follows a sequence of steps to
 decide what to do with it next. (For this discussion we'll ignore the
 loopback device and assume all traffic is on an actual network.)
 
-![IP Routing Algorithm]()
+![IP Routing Algorithm](ip-routing.pdf)
 
 * If the destination IP is on the local network attached to the router
   * Deliver the packet on the link (physical layer, e.g. Ethernet)
@@ -225,8 +223,8 @@ used--send the packet down both paths.
 
 ## Routing Example
 
-Let's run some examples. [Download a PDF of this diagram for greater
-clarity]().
+Let's run some examples. [flx[You can download a PDF of this diagram for
+greater clarity|ip-routing-demo.pdf]].
 
 In this diagram there are lot of missing things. Notably that every
 router interface has an IP address attached to it.
@@ -234,7 +232,7 @@ router interface has an IP address attached to it.
 Also note that, for example, Router 1 is directly connected to 3
 subnets, and it has an IP address on each of them.
 
-![Network Diagram]()
+![Network Diagram](ip-routing-demo.pdf)
 
 Trace the route of these packets:
 

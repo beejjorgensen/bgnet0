@@ -1,7 +1,8 @@
 # Project: Packet Tracer: Connect Two Computers
 
 In this project, we're going to build a simple network between two
-computers using Cisco's [fl[Packet Tracer|]] tool. It's free!
+computers using Cisco's [fl[Packet
+Tracer|https://www.netacad.com/courses/packet-tracer]] tool. It's free!
 
 If you don't have it installed, check out [Appendix: Packet
 Tracer](#appendix-packettracer) for installation information.

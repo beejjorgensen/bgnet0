@@ -10,7 +10,7 @@ source and destination address, called the _IP address_.
 The IP address is a sequence of bytes that uniquely identifies every
 computer on the Internet.
 
-## Terminilogy
+## Terminology
 
 * **Host** - another name for "computer".
 

@@ -1,7 +1,7 @@
 TITLE="Beej's Guide to Network Concepts"
 SUBTITLE=""
 AUTHOR='Brian “Beej Jorgensen” Hall'
-VERSION_DATE="v0.0.2, Copyright © March 14, 2023"
+VERSION_DATE="v0.0.3, Copyright © March 14, 2023"
 
 GUIDE_ID=bgnet0
 

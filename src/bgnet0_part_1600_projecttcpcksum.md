@@ -255,7 +255,7 @@ four-byte bytestring with the result.
 Here's a test:
 
 * Input: `"1.2.3.4"`
-* Output: b'\x01\x02\x03\x04'
+* Output: `b'\x01\x02\x03\x04'`
 
 Then you can run this function on each of the IP addresses in the input
 file and append them to the pseudoheader.

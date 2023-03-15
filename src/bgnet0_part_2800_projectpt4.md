@@ -27,7 +27,7 @@ FIVE subnets!
 
 And here's a picture of it:
 
-![Multiple Routers Network Diagram](multi_routers_net_diagram.png)
+![Multiple Routers Network Diagram](mult_routers_net_diagram.png)
 
 ## Drag Out the Components
 
@@ -69,7 +69,7 @@ those, there are two more ports that we can plug components into.
 From the left sidebar, drag a "GLC-T" into one of those ports, as shown
 below:
 
-![Adding a GLC-T component](adding_glc_component.png)
+![Adding a GLC-T component](adding-glc-component.png)
 
 Then power the router back on.
 
@@ -152,7 +152,7 @@ a very useful exercise, but this one is _usefuller_ as an introduction.)
 
 Let's look at the network diagram again:
 
-![Multiple Routers Network Diagram](multi_routers_net_diagram.png)
+![Multiple Routers Network Diagram](mult_routers_net_diagram.png)
 
 If a packet destined for `192.168.1.2` (on the right) leaves from
 `192.168.0.3` on the left, how does it get there?
