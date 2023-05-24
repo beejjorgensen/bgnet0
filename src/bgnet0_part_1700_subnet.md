@@ -263,7 +263,7 @@ try writing the bytes out in binary!
 What is the _subnet mask_? This is a run of `1` bits in binary that
 indicates which part of the IP address is the network portion. It is
 followed by a run of `0`s in binary that indicate which part is the
-network portion.
+host portion.
 
 It's used to determine what subnet an IP address belongs to, or what
 part of the IP represents the host number.
