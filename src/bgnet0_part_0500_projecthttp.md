@@ -112,7 +112,7 @@ GET /path/to/file.html HTTP/1.1
 ```
 
 (And if there were a payload to go with this header, it would go just
-afgter the blank line. There would also be a `Content-Length` header
+after the blank line. There would also be a `Content-Length` header
 giving the length of the payload in bytes. We don't have to worry about
 this for this project.)
 
