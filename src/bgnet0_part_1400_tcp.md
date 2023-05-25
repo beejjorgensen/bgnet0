@@ -270,7 +270,7 @@ And so it's going to start conservatively, assuming there's a high
 congestion level. (If there is already a high congestion level,
 liberally flooding it with data wouldn't be helpful.)
 
-It starts by allowing itself and initial _congestion window_ which is
+It starts by allowing itself an initial _congestion window_ which is
 how many unACKed bytes (and segments, but let's just think of bytes for
 now) it is allowed to have outstanding. 
 
