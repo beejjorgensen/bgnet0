@@ -98,7 +98,7 @@ And this affords some great advantages in a computer network:
 
 * You don't need a dedicated circuit between every communicating pair of
   computers (this would likely be a physical impossibility if we wanted
-  to support he amount of traffic we currently have today).
+  to support the amount of traffic we currently have today).
 
 * Multiple computers can all use the same wire to send data at the
   "same" time. (The packets actually go one at a time, but they're
