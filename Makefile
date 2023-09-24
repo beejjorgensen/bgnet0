@@ -48,9 +48,9 @@ stage_html_zips:
 	( cd $(STAGEDIR)/html; zip -r $(PACKAGE)-wide.zip $(PACKAGE); mv $(PACKAGE)/* split-wide; rmdir $(PACKAGE) )
 
 stage_examples:
-	cp -rv source/* $(STAGEDIR)/source
+	cp -rv source/* source/.htaccess $(STAGEDIR)/source
 	mkdir -p $(BUILDTMP)/$(PACKAGE)_source
-	cp -rv source/* $(BUILDTMP)/$(PACKAGE)_source
+	cp -rv source/* source/.htaccess $(BUILDTMP)/$(PACKAGE)_source
 	( cd $(BUILDTMP); zip -r $(PACKAGE)_source.zip $(PACKAGE)_source )
 	cp -v $(BUILDTMP)/$(PACKAGE)_source.zip $(STAGEDIR)/source
 	rm -rf $(BUILDTMP)
