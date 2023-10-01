@@ -158,7 +158,20 @@ Just like you can't take a letter, wrap it up in aluminum foil with no
 address, and expect the post office to deliver it to your intended
 recipient. That's breaking post office _protocol_.
 
+Both the sender and recipient have to be speaking the same protocol for
+correct communication to occur.
+
+> "Thank you for calling The Pizza Restaurant. Can I help you?"
+> "Would you like fries with that?"
+>
+> A person calling a pizza restaurant breaks protocol.
+
 There are many protocols, and we'll cover a few of them in detail later.
+These were invented by people to solve different sorts of problems. If
+you need to pass data between two specialized programs you write, you'll
+have to define a protocol for that, too!
+
+Here are some common ones you might have heard of:
 
 * TCP - used to transmit data reliably.
 * UDP - used to transmit data quickly and unreliably.
@@ -221,7 +234,9 @@ what to do with it.
 
 And since the layers don't care what data is encapsulated below them,
 you can swap out protocols at various layers and still have the rest of
-them work.
+them work. So if you're writing a program at the top layer (where we
+tend to write them most commonly), you don't care what's happening at
+the layers below that. It's Somebody Else's Problem.
 
 For example, you might be getting a web page with HTTP/TCP/IP/Ethernet,
 or you might be transmitting a file to another computer with
