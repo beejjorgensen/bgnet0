@@ -40,10 +40,14 @@ Before we get started, here are some terms to know:
   This protocol was invented in 1974 and is still in extremely heavy use
   today.
 
+  In the sockets API, TCP sockets are called _stream sockets_.
+
 * **UDP** -- sibling of TCP, except lighter weight. Doesn't guarantee
   data will arrive, or that it will be in order, or that it won't be
   duplicated. If it arrives, it will be error-free, but that's all you
   get.
+
+  In the sockets API, UDP sockets are called _datagram sockets_.
 
 * **IPv6 Address** -- Four bytes isn't enough to hold a unique address,
   so IP version 6 expands the address size considerably to 16 bytes.
