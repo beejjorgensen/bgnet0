@@ -278,6 +278,22 @@ Here are some Python specifics:
 
 * Get a socket just like you did for the client.
 
+* After the call to `socket()`, you should add this crazy-looking line:
+
+  ``` {.py}
+  s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+  ```
+
+  where `s` is the socket descriptor you got from `socket()`. This will
+  prevent an "Address already in use" error on the `bind()` in certain
+  circumstances which would certainly be confusing at the time. Usually
+  it happens after the server crashes. Later on we'll figure out why
+  that error occurs.
+
+  If you do get that error and don't feel like adding this line of code
+  because you're feeling contrary, you can also just wait a few minutes
+  for the OS to give up on the broken connection..
+
 * Bind the socket to a port with `s.bind()`. This takes one argument, a
   tuple containing the address and port you want to bind to. The address
   can be left blank to have it choose a local address. For example, "Any
