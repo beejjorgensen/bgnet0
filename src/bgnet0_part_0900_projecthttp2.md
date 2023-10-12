@@ -93,6 +93,9 @@ You can `.split()` that single line into its three parts: the request
 method (`GET`), the path (e.g. `/file1.txt`), and the protocol
 (`HTTP/1.1`).
 
+Don't forget to `.decode("ISO-8859-1")` the first line of the request so
+that you can use it as a string.
+
 We only really need the path.
 
 ## Stripping the Path down to the Filename
@@ -106,11 +109,14 @@ certain directory hierarchy, but we'll take the easy way and just strip
 all the path information off and only serve files from the directory the
 webserver is running in.
 
-In the `os.path` module, you'll find a function called
-[`.split()`](https://docs.python.org/3/library/os.path.html#os.path.split)
-that will pull a file name off a path.
+The path is going to be made up of directory names separated by a slash
+(`/`), so the easiest thing to do at this point is to use `.split('/')`
+on your path and filename, and then look at the last element.
 
 ``` {.py}
+fullpath = "/foo/bar/baz.txt"
+
+file = fullpath.spl
 os.path.split("/foo/bar/baz.txt")
 ```
 
@@ -159,7 +165,7 @@ The classic way to do this is by looking at the file extension,
 everything after the last period in the file name.
 
 Luckily,
-[`os.path.spltext()`](https://docs.python.org/3/library/os.path.html#os.path.splitext)
+[`os.path.splitext()`](https://docs.python.org/3/library/os.path.html#os.path.splitext)
 gives us an easy way to pull the extension off a file name:
 
 ``` {.py}
@@ -204,7 +210,7 @@ Here's some code to read an entire file and check for errors:
 
 ``` {.py}
 try:
-    with open(filename) as fp:
+    with open(filename, "rb") as fp:
         data = fp.read()   # Read entire file
         return data
 
@@ -213,9 +219,8 @@ except:
     # TODO send a 404
 ```
 
-The data you get back from `.read()` is what will be the payload. Be
-sure to encode it as `ISO-8859-1`, and then use `len()` to compute the
-number of bytes.
+The data you get back from `.read()` is what will be the payload.
+Use `len()` to compute the number of bytes.
 
 The number of bytes will be send back in the `Content-Length` header,
 like so:
@@ -225,6 +230,11 @@ Content-Length: 357
 ```
 
 (with the number of bytes of your file).
+
+> You might be wondering what the `"rb"` thing is in the `open()` call.
+> This causes the file to open for reading in binary mode. In Python, a
+> file open for reading in binary mode will return a bytestring
+> representing the file that you can send straight out on the socket.
 
 What about this `404 Not Found` thing? It's common enough that you've
 probably seen it in normal web usage from time to time.
@@ -260,7 +270,7 @@ Connection: close
 ```
 
 (Both the content length and the payload can just be hardcoded in this
-case.)
+case, but of course have to be `.encode()`'d to bytes.)
 
 ## Extensions
 
@@ -348,5 +358,5 @@ Rubric
 15 Proper Content-Type set in header
 15 Proper Content-Length set in header
 15 HTTP response header is constructed correctly and ISO-8859-1 encoded
-15 HTTP response payload is constructed correctly and ISO-8859-1 encoded
+15 HTTP response payload is constructed correctly
 -->
