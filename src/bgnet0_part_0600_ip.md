@@ -84,7 +84,7 @@ and host parts, with the network part first.
 There are some related protocols that also work in concert with IP and
 at the same layer in the network stack.
 
-* **ICMP**: Intenet Control Message Protocol, a mechanism for
+* **ICMP**: Internet Control Message Protocol, a mechanism for
   communicating IP nodes to talk about IP control metadata with one
   another.
 

@@ -230,7 +230,7 @@ network, subnets were split into 3 main classes:
 * **Class C** - Subnet mask `255.255.255.0` (or `/24`) supports 253 hosts
 
 The problem was that this caused a really uneven distribution of
-subnets, which some large companies getting 16 million hosts (that they
+subnets, with some large companies getting 16 million hosts (that they
 didn't need), and there was no subnet class that supported a sensible
 number of computers, like 1,000.
 
