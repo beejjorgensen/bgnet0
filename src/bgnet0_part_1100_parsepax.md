@@ -62,7 +62,7 @@ packet = get_next_packet()
 if packet.type == PLAYER_POSITION:
     set_player_position(packet.player_index, packet.player_position)
 
-elif packet.type == PRIVATE_CHAT::
+elif packet.type == PRIVATE_CHAT:
     display_chat(packet.player_from, packet.message, private=True)
 ```
 
