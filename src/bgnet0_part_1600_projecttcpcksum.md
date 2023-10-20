@@ -11,6 +11,9 @@ making sure it hasn't been corrupted in transit.
 * The other contains the raw TCP packet, both the TCP header and the
   payload.
 
+You can [fls[download the input files from the exercises
+folder|tcpcksum/tcp_data.zip]].
+
 **Outputs**:
 
 * For each pair of files, print `PASS` if the TCP checksum is correct.
