@@ -236,7 +236,7 @@ Luckily, there's a built-in function to help with that: `.to_bytes()`.
 
 And there's one to go the other way: `.from_bytes()`
 
-It even allows you to specify the endianess! Since we'll be using this
+It even allows you to specify the endianness! Since we'll be using this
 to transmit bytes over the network, we'll always use `"big"` endian.
 
 ### Converting a Number to Bytes
