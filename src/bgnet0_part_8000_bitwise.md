@@ -127,7 +127,7 @@ Otherwise it's `0`.
 
 <!-- CAPTION: Bitwise-AND Truth Table -->
 |A|B|A AND B|
-|-|-|-|
+|:-:|:-:|:-:|
 |0|0|0|
 |0|1|0|
 |1|0|0|
@@ -169,7 +169,7 @@ Otherwise it's `0`.
 
 <!-- CAPTION: Bitwise-OR Truth Table -->
 |A|B|A OR B|
-|-|-|-|
+|:-:|:-:|:-:|
 |0|0|0|
 |0|1|1|
 |1|0|1|
@@ -211,7 +211,7 @@ single number.
 
 <!-- CAPTION: Bitwise-NOT Truth Table -->
 |A|NOT A|
-|-|
+|:-:|:-:|
 |0|1|
 |1|0|
 
