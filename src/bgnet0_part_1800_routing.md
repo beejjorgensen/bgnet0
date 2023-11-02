@@ -71,7 +71,7 @@ they know how to route traffic?
 Having every router have a complete map of the Internet isn't practical.
 Works fine on smaller clumps, but not on the whole thing.
 
-So we change it up for communicate between these clumps and use an
+So we change it up for communication between these clumps and use an
 _exterior gateway protocol_ for routing between the clumps.
 
 Remember the official term for "clump"? Autonomous Systems. Each
@@ -216,7 +216,7 @@ loopback device and assume all traffic is on an actual network.)
 If multiple matching routes exist, the one with the longest subnet mask
 is chosen.
 
-If there is still a tie, the one with the loewst metric is used.
+If there is still a tie, the one with the lowest metric is used.
 
 If there is still a tie, ECMP (Equal Cost Multi-Path) routing can be
 used--send the packet down both paths.
@@ -293,8 +293,8 @@ don't forward them anywhere.
 The world would be a very noisy place if they did.
 
 One of the main uses for it is when you first open your laptop on WiFi.
-The laptop doesn't know it's IP, the subnet mask, the default gateway,
-or even whom to ask. So it sends out a broadcast packet to
+The laptop doesn't know its IP, the subnet mask, the default gateway, or
+even whom to ask. So it sends out a broadcast packet to
 `255.255.255.255` with a
 [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol)
 packet asking for that information. A DHCP server is listening and can
