@@ -34,6 +34,10 @@ and comments.) This is not a number to beat, but is an indication of how
 much effort you need to put in to understanding this spec versus typing
 in code!
 
+## Banned Functions
+
+You may not use anything in the `socket` library.
+
 ## How To Code This
 
 You can do this however you like, but I recommend this order. Details
