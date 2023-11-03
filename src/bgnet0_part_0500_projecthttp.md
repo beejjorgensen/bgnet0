@@ -444,7 +444,9 @@ If you run the client and get a response from a server that has the code
 `400` or any of the `500`s, odds are you have made a bad request. That
 is, the request data you sent was malformed in some way.
 
-Make sure every field of the header ends in `\r\n` and that 
+Make sure every field of the header ends in `\r\n` and that the header
+is terminated by a blank line (i.e. `\r\n\r\n` are the last 4 bytes of
+the header).
 
 ### HTTP 404 Not Found!
 
