@@ -44,7 +44,7 @@ with 64`bits for network (as specified with `/64`) and 64`bits for host
 (since `128-64=64`):
 
 ``` {.default}
-2001:0db8:6ffa:8939:163b:4cab:98bf:070a/64`
+2001:0db8:6ffa:8939:163b:4cab:98bf:070a/64
 ```
 
 64 bits for host! That means this subnet can have
