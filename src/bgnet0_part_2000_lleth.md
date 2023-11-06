@@ -112,7 +112,7 @@ ignore the traffic unless it's specifically addressed to them.
 > supposed to. So the network isn't really as loud as the crowded-room
 > analogy suggests. Back before switches, we used things called `hubs`,
 > which didn't have the brains to discriminate between destinations.
-> They'd broadcast all Ethernet 
+> They'd broadcast all Ethernet packets to all destinations.
 
 Not every link layer protocol works this way, however. The common goal
 of all of them is that we're going to send and receive data at the wire
