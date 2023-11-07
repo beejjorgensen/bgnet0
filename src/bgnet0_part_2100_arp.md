@@ -40,7 +40,7 @@ destinations are ignored.
 > Side note: they are ignored unless the network card is placed into
 > [_promiscuous mode_](https://en.wikipedia.org/wiki/Promiscuous_mode),
 > in which case it receives **all** traffic on the LAN and forwards it
-> to the CPU.
+> to the OS.
 
 But there's a way to override: the _broadcast frame_. This is a frame
 that has a destination MAC address of `ff:ff:ff:ff:ff:ff`. All devices
