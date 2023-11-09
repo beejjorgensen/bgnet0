@@ -69,7 +69,7 @@ the other ones.
 ``` {.py}
 read_set = {s1, s2, s3}
 
-ready_to_read, _, _ = select.select(ready_set, {}, {})
+ready_to_read, _, _ = select.select(read_set, {}, {})
 ```
 
 At this point, we can go through the sockets that are ready and receive
@@ -163,3 +163,18 @@ sockets.
 * Why do we have to add the listener socket to the set, anyway? Why not
   just call `accept()` and then call `select()`?
 
+## Using `select()` with `send()`
+
+If your computer tries to send too much too fast, the call to `send()`
+might block. That is, the OS will have it sleep while it processes the
+backlog of data to be sent.
+
+But let's say you really don't want to have the call block and want to
+keep processing.
+
+You can query with `select()` to make sure a socket won't block with a
+`send()` call by passing a set containing the socket descriptor as the
+second argument.
+
+And it'll work in much the same way as the "ready to read" set works,
+above.

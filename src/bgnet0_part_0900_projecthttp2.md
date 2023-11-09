@@ -298,8 +298,9 @@ challenge for greater understanding of the material. Push yourself!
   Use
   [`os.path.realpath()`](https://docs.python.org/3/library/os.path.html#os.path.realpath)
   and compare the first part with the absolute path your server's root
-  directory to make sure they match. If they don't, `404`.
-
+  directory using
+  [`os.path.commonprefix()`](https://docs.python.org/3/library/os.path.html#os.path.commonprefix)
+  to make sure they match. If they don't, `404`.
 
 ## Example Files
 

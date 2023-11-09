@@ -144,9 +144,10 @@ The maximum size packet that can be sent on any particular wire is
 called its MTU (maximum transmission unit). The smallest possible MTU on
 the Internet (IPv4) is 576 bytes. The biggest IP header is 60 bytes. And
 the UDP header is 8 bytes. So that leaves 576-60-8 = 508 bytes of
-payload that you can guarantee won't be fragmented. Since the IP header
-is sometimes smaller than 60 bytes, lots of source say 512 bytes is the
-limit.
+payload that you can guarantee won't be fragmented[^If you're sending
+through a VPN, it might be less than this, but we'll ignore that for
+sake of simplicity.]. Since the IP header is sometimes smaller than 60
+bytes, lots of source say 512 bytes is the limit.
 
 Is fragmentation bad? Some routers might drop fragmented UDP packets. So
 staying under the minimum MTU is often a good idea with UDP.
@@ -157,7 +158,7 @@ If UDP can drop packets all over the place, why ever use it?
 
 Well, the performance gain is notable, so that's a draw.
 
-There are basically two circumstances you would use UDP:
+There are a number of circumstances you would use UDP:
 
 1. If you don't care if you lose a few packets. If you're transmitting
    voice or video or even game frame information, it might be OK to drop
@@ -180,6 +181,15 @@ There are basically two circumstances you would use UDP:
    and need a small built-in network stack to make that happen. It's a
    lot easier to implement an Ethernet/IP/UDP stack than an
    Ethernet/IP/TCP stack.
+
+3. You want to multiplex different data "streams" without having
+   multiple TCP connections. You could tag each UDP packet with an
+   identifier so that they all go in the right buckets upon arrival.
+
+4. Early processing is possible. Maybe you can start processing packet 4
+   even if packet 3 hasn't arrived yet.
+
+5. Etc.
 
 ## UDP (Datagram) Sockets
 

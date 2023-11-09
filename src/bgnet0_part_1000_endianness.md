@@ -224,6 +224,12 @@ The good news is that Mac M1s are big-endian.
 The even better news is that **all network numbers are transmitted as
 big-endian**, the sensible way.
 
+> And when I say "all", I mean "a certain amount"[^—Monty Python]. If
+> both sides agree to transmit in little endian, there's no law against
+> that. This would make sense if the sender and receiver were both
+> little-endian architectures—why waste time reversing bytes just to
+> reverse them back? But the majority of protocols specify big-endian.
+
 Big-endian byte order is called _network byte order_ in network contexts
 for this reason.
 
@@ -247,6 +253,9 @@ of 2 bytes in big-endian order.
 Note that we pass two things into the `.to_bytes()` method: the number
 of bytes for the result, and `"big"` if it's to be big-endian, or
 `"little"` if it's to be little endian.
+
+> Newer versions of Python default to `"big"`. In older versions, you
+> still have to be explicit.
 
 ``` {.default}
 n = 3490
