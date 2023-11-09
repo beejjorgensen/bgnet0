@@ -105,6 +105,7 @@ particular path.
         `math.inf`, but you could also use just a very large number, e.g.
         4 billion.)
       * Add the node to the `to_visit` set.
+    * Set the distance to the starting node to `0`.
 
   * Running:
     * While `to_visit` isn't empty:
@@ -220,7 +221,7 @@ above. It will output to the console lines like this showing the source,
 destination, and all routers in between:
 
 ``` {.default}
-10.34.52.158 -> 10.34.166.1 ['10.34.52.1', '10.34.250.1', '10.34.166.1']
+10.34.46.25 -> 10.34.166.228    ['10.34.46.1', '10.34.98.1', '10.34.166.1']
 ```
 
 ### The Graph Representation
