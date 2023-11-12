@@ -165,9 +165,9 @@ This method works like this:
 
    If it doesn't receive the same thing it sent, it means that another
    network device also started transmitting at the same time. This is a
-   collision detection, the "CD" part of CSMA/CD. 5. 
+   collision detection, the "CD" part of CSMA/CD.
 
-   To resolve the situation, the network card transmits a special signal
+5. To resolve the situation, the network card transmits a special signal
    called the "jam signal" to alert other cards on the network that a
    collision has occurred and they should stop transmitting. The network
    card then waits a small, partly random amount of time, and then goes
