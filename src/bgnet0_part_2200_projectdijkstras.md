@@ -97,14 +97,15 @@ particular path.
     * Create a `distance` dictionary. For any given node (as a key), it
       will hold the distance from that node to the starting node
     * Create a `parent` dictionary. For any given node (as a key), it
-      lists the key for the that leads back to the starting node (along
-      the shortest path).
+      lists the key for the node that leads back to the starting node
+      (along the shortest path).
     * For every node:
       * Set its `parent` to `None`.
       * Set its `distance` to infinity. (Python has infinity in
-        `math.inf`, but you could also use just a very large number, e.g.
-        4 billion.)
+        `math.inf`, but you could also use just a very large number,
+        e.g. 4 billion.)
       * Add the node to the `to_visit` set.
+    * Set the distance to the starting node to `0`.
 
   * Running:
     * While `to_visit` isn't empty:
@@ -220,7 +221,7 @@ above. It will output to the console lines like this showing the source,
 destination, and all routers in between:
 
 ``` {.default}
-10.34.52.158 -> 10.34.166.1 ['10.34.52.1', '10.34.250.1', '10.34.166.1']
+10.34.46.25 -> 10.34.166.228    ['10.34.46.1', '10.34.98.1', '10.34.166.1']
 ```
 
 ### The Graph Representation
