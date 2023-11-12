@@ -230,7 +230,7 @@ or Windows.
 get out of the app. As such, you might have to hit `CTRL-C` followed by
 `RETURN` to actually break out. On Windows, you might try `CTRL-BREAK`.
 
-## Packet Structuree
+## Packet Structure
 
 The client and server will communicate over TCP (stream) sockets using a
 defined packet structure.
