@@ -89,7 +89,7 @@ the incoming connections have to wait? Furthermore, `accept()` blocks...
 how will we get back to the `select()` if we're blocked on that?
 
 Fortunately, `select()` provides us with an answer: _you can add a
-listening socked to the set!_ When the listening socket shows up as
+listening socket to the set!_ When the listening socket shows up as
 "ready-to-read", it means there's a new incoming connection to
 `accept()`.
 
