@@ -295,12 +295,76 @@ challenge for greater understanding of the material. Push yourself!
   **SECURITY RISK!** Make sure the user can't break out of the root
   directory by using a bunch of `..`s in the path!
 
-  Use
-  [`os.path.realpath()`](https://docs.python.org/3/library/os.path.html#os.path.realpath)
-  and compare the first part with the absolute path your server's root
-  directory using
-  [`os.path.commonprefix()`](https://docs.python.org/3/library/os.path.html#os.path.commonprefix)
-  to make sure they match. If they don't, `404`.
+  Normally you'd have some kind of configuration variable that specified
+  the server root directory as an absolute path. But if you're in one of
+  my classes, that would make my life miserable when I went to grade
+  projects. So if that's the case, please use a relative path for your
+  server root directory and create a full path with the
+  [`os.path.abspath()`](https://docs.python.org/3/library/os.path.html#os.path.abspath)
+  function.
+
+  ``` {.py}
+  server_root = os.path.abspath('.')        # This...
+  server_root = os.path.abspath('./root')   # or something like this
+  ```
+
+  This would set `server_root` to a full path to where you ran your
+  server. For example, on my machine, I might get:
+
+  ``` {.default}
+  /home/beej/src/webserver                  # This...
+  /home/beej/src/webserver/root             # or something like this
+  ```
+
+  Then when the user tries to `GET` some path, you can just append it to
+  server root to get the path to the file.
+
+  ``` {.py}
+  file_path = os.path.sep.join(server_root, get_path)
+  ```
+
+  So if they tried to `GET /foo/bar/index.html`, then `file_path` would
+  get set to:
+
+  ```
+  /home/beej/src/webserver/foo/bar/index.html
+  ```
+
+  **And now the security crux!** You have to make sure that `file_path`
+  is within the server root directory. See, a villain might try to:
+
+  ``` {.http}
+  GET /../../../../../etc/passwd HTTP/1.1
+  ```
+  
+  And if they did that, we'd unknowingly serve out this file:
+
+  ```
+  /home/beej/src/webserver/../../../../../etc/passwd
+  ```
+
+  which would get them to my password file in `/etc/passwd`. I don't
+  want that.
+
+  So I need to make sure that wherever they end up is still within my
+  `server_root` hierarchy. How? We can use `abspath()` again.
+
+  If I run the crazy `..` path above through `abspath()`, it just
+  returns `/etc/passwd` to me. It resolves all the `..`s and other
+  things and returns the "real" path.
+
+  But I know my server root in this example is
+  `/home/beej/src/webserver`, so I can just verify that the absolute
+  file path begins with that. And 404 if it doesn't.
+
+  ``` {.py}
+  # Convert to absolute path
+  file_path = os.path.abspath(file_path)
+
+  # See if the user is trying to break out of the server root
+  if not file_path.startswith(server_root):
+      send_404()
+  ```
 
 ## Example Files
 
