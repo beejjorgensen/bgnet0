@@ -45,7 +45,7 @@ process running on it waiting on port `67`.
 The DHCP server process sees the DISCOVER and decides what to do with
 it.
 
-The typical use is that the client wants and IP address. We call this
+The typical use is that the client wants an IP address. We call this
 _leasing_ an IP from the DHCP server. The DHCP server is tracking which
 IPs have been allocated and which are free out of its pool.
 
