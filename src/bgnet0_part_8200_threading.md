@@ -56,7 +56,7 @@ threads will see those changes. You don't have to worry about this if
 the shared data is read-only, but do have to consider this if it's
 writable.
 
-We about to get into the weeds with concurrency and synchronization
+We are about to get into the weeds with concurrency and synchronization
 here, so for this project, let's just not use any global shared objects.
 Remember the old proverb:
 
