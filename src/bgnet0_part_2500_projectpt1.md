@@ -72,9 +72,9 @@ Let's ping from PC0 to PC1 to make sure the network is connected.
 
 3. In the command prompt, type `ping 192.168.0.3`.
 
-> **Warning**: sometimes Packet Tracer simulates dropped packets. Make
-> sure it drops more than one before you assume something isn't wired up
-> right!
+> When you ping, the first ping might timeout because ARP needs to do
+> its work first. In more complex networks, multiple pings might timeout
+> before getting through.
 
 You should see successful ping output:
 
@@ -94,7 +94,8 @@ Approximate round trip times in milli-seconds:
     Minimum = 0ms, Maximum = 0ms, Average = 0ms
 ```
 
-If you see `Request timed out.` something is misconfigured.
+If you see `Request timed out.` more than twice, something is
+misconfigured.
 
 ## Saving the Project
 
