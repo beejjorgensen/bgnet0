@@ -305,7 +305,7 @@ result in!
 
 ### Example Run
 
-Example input:
+Example input (you can just hardcode this in your program):
 
 ``` {.py}
 ranges = [
