@@ -159,8 +159,11 @@ This method works like this:
 
 1. The Ethernet card waits for quiet in the room--when no other network
    card is transmitting. (This is the "CSMA" part of CSMA/CD.)
+
 2. It starts sending.
+
 3. It also listens while it's sending.
+
 4. If it receives the same thing that it sent, all is well.
 
    If it doesn't receive the same thing it sent, it means that another
