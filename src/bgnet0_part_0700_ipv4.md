@@ -227,7 +227,7 @@ network, subnets were split into 3 main classes:
 
 * **Class A** - Subnet mask `255.0.0.0` (or `/8`), supports 16,777,214 hosts
 * **Class B** - Subnet mask `255.255.0.0` (or `/16`), supports 65,534 hosts
-* **Class C** - Subnet mask `255.255.255.0` (or `/24`) supports 253 hosts
+* **Class C** - Subnet mask `255.255.255.0` (or `/24`) supports 254 hosts
 
 The problem was that this caused a really uneven distribution of
 subnets, with some large companies getting 16 million hosts (that they
