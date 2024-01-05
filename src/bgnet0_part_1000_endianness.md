@@ -209,7 +209,7 @@ toast" when in fact I really wanted 321!
 There's a name for putting the bytes backward like this. We say such
 representations are _little endian_.
 
-This mean the "little end" of the number (the "ones" byte, if I can call
+This means the "little end" of the number (the "ones" byte, if I can call
 it that) comes at the front end.
 
 The more-normal, more-forward way to write it (like we did at first,
