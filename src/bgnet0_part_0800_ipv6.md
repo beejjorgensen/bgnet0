@@ -123,7 +123,7 @@ Like with IPv4, there are a lot of addresses that have special meaning.
 
 * **`::1`** - localhost, this computer, IPv6 version of `127.0.0.1`
 * **`2001:db8::/32`** - for use in documentation
-* **`fe80::/10` - link local address
+* **`fe80::/10`** - link local address
 
 There are IPv6 ranges with special meanings, but those are the common
 ones you'll see.
