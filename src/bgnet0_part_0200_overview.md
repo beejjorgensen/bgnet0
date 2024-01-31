@@ -47,7 +47,7 @@ Eventually, people figured out they could replace the human operators
 with electro-mechanical relays and switches that you could control by
 sending carefully coded signals down the line, either electrical pulses
 (sent by old rotary dial phones) or the still-recognizable "touch"
-tones).
+tones.
 
 But we still had problems:
 
@@ -140,7 +140,7 @@ The Unix sockets API is very general purpose, but one of the many things
 it can do is give you a way to read and write data over the Internet.
 
 Other languages and operating systems have added the same Internet
-functionality over time, and many of them use a different calls in their
+functionality over time, and many of them use different calls in their
 APIs. But as an homage to the original, many of these APIs are still
 called "sockets" APIs even if they don't match the original.
 
@@ -206,7 +206,7 @@ network. We'll cover this in much more detail in the coming modules.
 5. The NIC wraps all _that_ data up into another header that's defined
    by a protocol such as Ethernet that helps with delivery on the LAN.
 
-6. The NIC sends the entire, multiply wrapped data out over the wire,
+6. The NIC sends the entire, multiply-wrapped data out over the wire,
    or over the air (with WiFi).
 
 When the receiving computer gets the packet, the reverse process
@@ -281,4 +281,3 @@ that is commonly used with Ethernet".
 
 * What are the practical differences between a WiFi network and a wired
   network?
-

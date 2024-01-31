@@ -90,8 +90,8 @@ Writing a server program is a little bit different.
    explicitly bind them, they get assigned an unused port when the
    connect--which is usually what we want.
 
-3. **Listen for incoming connections**. We have to let the OS know that
-   when it gets an incoming connection request on the port we selected
+3. **Listen for incoming connections**. We have to let the OS know
+   when it gets an incoming connection request on the port we selected.
 
 4. **Accept incoming connections**. The server will block (it will
    sleep) when you try to accept a new connection if none are pending.
@@ -104,7 +104,7 @@ Writing a server program is a little bit different.
    handle multiple clients at once.
 
    Sometimes the server spawns a new thread or process to handle each
-   new client. But there's no law that say it has to.
+   new client. But there's no law that says it has to.
 
 5. **Send data and receive data**. This is typically where the server
    would receive a request from the client, and the server would send
@@ -136,4 +136,3 @@ Writing a server program is a little bit different.
 
 * [Python Sockets Documentation](https://docs.python.org/3/library/socket.html)
 * [flbg[_Beej's Guide to Network Programming_|bgnet]]--optional, for C devs
-

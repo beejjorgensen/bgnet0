@@ -7,7 +7,7 @@ Before we get started, here are some terms to know:
   so: `198.51.100.99`.
 
   These are IP version 4 ("IPv4") addresses. Typically "v4" is implied
-  in the absense of any other version identifier.
+  in the absence of any other version identifier.
 
 * **Port** -- Programs talk through ports, which are numbered 0-65535
   and are associated with the TCP or UDP protocols.
@@ -26,7 +26,7 @@ Before we get started, here are some terms to know:
   no one tries to connect to clients.
 
   In a URL, the port number is after a colon. Here we try to connect to
-  `example.com` on port `3490`: `http://example.com:3490/foo.html` 
+  `example.com` on port `3490`: `http://example.com:3490/foo.html`
 
   Ports under 1024 need root/administrator privileges to bind to (but
   not to connect to).
@@ -75,7 +75,7 @@ Before we get started, here are some terms to know:
 
 * **Interface** -- physical networking hardware on a computer. A
   computer might have a number of interfaces. Your computer likely has
-  two: a wired Ethernet interface and a wireless Ethernet interface. 
+  two: a wired Ethernet interface and a wireless Ethernet interface.
 
   A router might have a large number of interfaces to be able to route
   packets to a large number of destinations. Your home router probably
@@ -273,7 +273,7 @@ use: the OSI model.
 
 ## The ISO OSI Network Layer Model
 
-This is imporant to know if you're taking a certification test or if
+This is important to know if you're taking a certification test or if
 you're going into the field as more than a regular programmer.
 
 The Internet Layer Model is a special case of this more-detailed model
@@ -340,5 +340,3 @@ interview for a network-specific programming position.
 
 * If UDP is unreliable and TCP is reliable, speculate on why one might
   ever use UDP.
-
-
