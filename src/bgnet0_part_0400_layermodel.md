@@ -16,7 +16,7 @@ Before we get started, here are some terms to know:
   port provides a way to uniquely identify those programs on the
   network.
 
-  For example, it's very common for a webserver to listen for incoming
+  For example, it's very common for a web server to listen for incoming
   connections on port 80.
 
   Publishing the port number is really important for server programs
@@ -153,7 +153,7 @@ Let's consider what happens with an HTTP request.
 
 2. The OS takes over and says, "OK, you asked me to send this over a
    stream-oriented socket, and I'm going to use the TCP protocol to do
-   that and insure all the data arrives intact and in order."
+   that and ensure all the data arrives intact and in order."
 
    So the OS takes the HTTP data and wraps it in a TCP header which
    includes the port number.
@@ -162,7 +162,7 @@ Let's consider what happens with an HTTP request.
    computer whose IP address is 198.51.100.2, so we'll use the IP
    protocol to do that."
 
-   And it takes the entire TCP-HTTP data and wraps it up an an IP
+   And it takes the entire TCP-HTTP data and wraps it up in an IP
    header. So now we have data that looks like this: IP-TCP-HTTP.
 
 4. After that, the OS takes a look at its routing table and decides
@@ -177,7 +177,7 @@ Let's consider what happens with an HTTP request.
    And computers on the LAN have an Ethernet address (AKA _MAC
    address_--which stands for "Media Access Control"), so the sending OS
    looks up the MAC address that corresponds to the next destination IP
-   address, whether that's a local webserver or the outbound router.
+   address, whether that's a local web server or the outbound router.
    (This happens via a lookup in something called the _ARP Cache_, but
    we'll get to that part of the story another time.)
 
@@ -239,12 +239,12 @@ different layers from the top down. (Note that the list of protocols is
 far from exhaustive.)
 
 <!-- CAPTION: Internet Layered Network Model -->
-|Layer|Responsibility|Example Protocols|
-|:-:|-|-|
-|Application|Structured application data|HTTP, FTP, TFTP, Telnet, SSH, SMTP, POP, IMAP|
-|Transport|Data Integrity, packet splitting and reassembly|TCP, UDP|
-|Internet|Routing|IP, IPv6, ICMP|
-|Link|Physical, signals on wires|Ethernet, PPP, token ring|
+|    Layer    | Responsibility                                  | Example Protocols                             |
+|:-----------:|-------------------------------------------------|-----------------------------------------------|
+| Application | Structured application data                     | HTTP, FTP, TFTP, Telnet, SSH, SMTP, POP, IMAP |
+|  Transport  | Data Integrity, packet splitting and reassembly | TCP, UDP                                      |
+|  Internet   | Routing                                         | IP, IPv6, ICMP                                |
+|    Link     | Physical, signals on wires                      | Ethernet, PPP, token ring                     |
 
 You can see how different protocols take on the responsibilities of each
 layer in the model.
@@ -290,30 +290,30 @@ The Internet model maps to the OSI model, like so, with a single layer
 of the Internet model mapping to multiple layers of the OSI model:
 
 <!-- CAPTION: OSI to Internet Layer Mapping -->
-|ISO OSI Layer|Internet Layer|
-|:-:|:-:|
-|Application|Application|
-|Presentation|Application|
-|Session|Application|
-|Transport|Transport|
-|Network|Network|
-|Data link|Link|
-|Physical|Link|
+| ISO OSI Layer | Internet Layer |
+|:-------------:|:--------------:|
+|  Application  |  Application   |
+| Presentation  |  Application   |
+|    Session    |  Application   |
+|   Transport   |   Transport    |
+|    Network    |    Network     |
+|   Data link   |      Link      |
+|   Physical    |      Link      |
 
 And if we look at the OSI model, we can see some of the protocols that
 exist at those various layers, similar to what we saw with the Internet
 model, above.
 
 <!-- CAPTION: ISO OSI Network Layer Model -->
-|ISO OSI Layer|Responsibility|Example Protocols|
-|:-:|-|-|
-|Application|Structured application data|HTTP, FTP, TFTP, Telnet, SMTP, POP, IMAP|
-|Presentation|Encoding translation, encryption, compression|MIME, SSL/TLS, XDR|
-|Session|Suspending, terminating, restarting sessions between computers|Sockets, TCP|
-|Transport|Data integrity, packet splitting and reassembly|TCP, UDP|
-|Network|Routing|IP IPv6, ICMP|
-|Data link|Encapsulation into frames|Ethernet, PPP, SLIP|
-|Physical|Physical, signals on wires|Ethernet physical layer, DSL, ISDN|
+| ISO OSI Layer | Responsibility                                                 | Example Protocols                        |
+|:-------------:|----------------------------------------------------------------|------------------------------------------|
+|  Application  | Structured application data                                    | HTTP, FTP, TFTP, Telnet, SMTP, POP, IMAP |
+| Presentation  | Encoding translation, encryption, compression                  | MIME, SSL/TLS, XDR                       |
+|    Session    | Suspending, terminating, restarting sessions between computers | Sockets, TCP                             |
+|   Transport   | Data integrity, packet splitting and reassembly                | TCP, UDP                                 |
+|    Network    | Routing                                                        | IP IPv6, ICMP                            |
+|   Data link   | Encapsulation into frames                                      | Ethernet, PPP, SLIP                      |
+|   Physical    | Physical, signals on wires                                     | Ethernet physical layer, DSL, ISDN       |
 
 We're going to stick with the Internet model for this course since it's
 good enough for 99.9% of the network programming work you'd ever be likely
