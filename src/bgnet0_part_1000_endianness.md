@@ -1,4 +1,4 @@
-# Endianess and Integers
+# Endianness and Integers
 
 We've done some work transmitting text over the network. But now we want
 to do something else: we want to transfer binary integer data.
@@ -181,7 +181,7 @@ is 2 hex digits). Let's do the same chart again, this time in hex:
 Look at that again! The hex representation of the number is the same as
 the two bytes just crammed together! Super-duper convenient.
 
-## Endianess
+## Endianness
 
 Ready to get a wrench thrown in the works?
 
@@ -233,7 +233,7 @@ big-endian**, the sensible way.
 Big-endian byte order is called _network byte order_ in network contexts
 for this reason.
 
-## Python and Endianess
+## Python and Endianness
 
 What if you have some number in Python, how do you convert it into a
 byte sequence?
