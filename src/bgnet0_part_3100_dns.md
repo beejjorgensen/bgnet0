@@ -13,7 +13,7 @@ localhost address of `127.0.0.1`.
 
 The general process for converting a name like `www.example.com` that
 humans use into an IP address that computers use is called _domain name
-resolution_, and it provided by a distributed group of servers that
+resolution_, and is provided by a distributed group of servers that
 comprise the _Domain Name System_, or DNS.
 
 ## Typical Usage
@@ -69,7 +69,7 @@ particular domain or subdomain.
 > example, the owner of `example.com` might make subdomains
 > `sub1.example.com` and `sub2.example.com`. These aren't hosts in this
 > case--but they can have their own hosts, e.g.
-> `host1.sub1.examople.com`, `host2.sub1.example.com`,
+> `host1.sub1.example.com`, `host2.sub1.example.com`,
 > `somecompy.sub2.example.com`.
 >
 > Domain owners can make as many subdomains as they want. They just have
@@ -101,8 +101,8 @@ domain if I don't know what the name server is for a domain?
 
 To solve this, we have a number of _root name servers_ that can help us
 on our way. When we don't know an IP, we can start with them and ask
-them to tell us IP, or tell us which other server to ask. More on that
-process in a minute.
+them to tell us the IP, or tell us which other server to ask. More on
+that process in a minute.
 
 Computers are preconfigured with the IP addresses of the 13 root name
 servers. These IPs rarely ever change, and only one of them is needed to
@@ -250,11 +250,12 @@ So we're going to have to amend the outline we already went over.
    If it has it cached, it will return it.
 
 3. If it's not cached **and** if this name server has another upstream
-   name server, it asks that name server for the answer.
+   name server (that is, another nameserver it can appeal to for
+   answers), it asks that name server for the answer.
 
-4. If it's not cached **and** if this name server does not have another upstream
-   name server, it goes to the root servers and the process continues as
-   before.
+4. If it's not cached **and** if this name server does not have another
+   upstream name server, it goes to the root servers and the process
+   continues as before.
 
 With all these possible opportunities to get a cached result, it really
 helps take the load off the root name servers./
