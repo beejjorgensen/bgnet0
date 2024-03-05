@@ -12,6 +12,9 @@ PDF_MONOFONT="Liberation Mono"
 #PDF_SANSFONT="DejaVu Sans"
 #PDF_MONOFONT="DejaVu Sans Mono"
 
+# xelatex seems to have developed a bug around TeX quotes
+FIX_QUOTES=sed -i "s/\`\`/“/g" $(GUIDE_ID)_temp.tex; sed -i "s/''/”/g" $(GUIDE_ID)_temp.tex
+
 USLETTER_COLOR=$(GUIDE_ID)_usl_c_1.pdf $(GUIDE_ID)_usl_c_2.pdf
 USLETTER_BW=$(GUIDE_ID)_usl_bw_1.pdf $(GUIDE_ID)_usl_bw_2.pdf
 A4_COLOR=$(GUIDE_ID)_a4_c_1.pdf $(GUIDE_ID)_a4_c_2.pdf
@@ -102,6 +105,7 @@ $(GUIDE_ID).epub: $(GUIDE_MD)
 $(GUIDE_ID)_quick.pdf: $(GUIDE_MD)
 	$(PREPROC) $^ $(PREPROC_MD)
 	pandoc $(PDF_OPTS) $(USLETTER) $(ONESIDE) $(COLOR) $(PREPROC_MD)
+	$(FIX_QUOTES)
 	xelatex $(GUIDE_ID)_temp.tex
 	mv $(GUIDE_ID)_temp.pdf $@
 	rm -f $(GUIDE_ID)_temp*
@@ -109,6 +113,7 @@ $(GUIDE_ID)_quick.pdf: $(GUIDE_MD)
 $(GUIDE_ID)_usl_c_1.pdf: $(GUIDE_MD)
 	$(PREPROC) $^ $(PREPROC_MD)
 	pandoc $(PDF_OPTS) $(USLETTER) $(ONESIDE) $(COLOR) $(PREPROC_MD)
+	$(FIX_QUOTES)
 	xelatex $(GUIDE_ID)_temp.tex
 	makeindex $(GUIDE_ID)_temp.idx
 	xelatex $(GUIDE_ID)_temp.tex
@@ -119,6 +124,7 @@ $(GUIDE_ID)_usl_c_1.pdf: $(GUIDE_MD)
 $(GUIDE_ID)_usl_c_2.pdf: $(GUIDE_MD)
 	$(PREPROC) $^ $(PREPROC_MD)
 	pandoc $(PDF_OPTS) $(USLETTER) $(TWOSIDE) $(COLOR) $(PREPROC_MD)
+	$(FIX_QUOTES)
 	xelatex $(GUIDE_ID)_temp.tex
 	makeindex $(GUIDE_ID)_temp.idx
 	xelatex $(GUIDE_ID)_temp.tex
@@ -129,6 +135,7 @@ $(GUIDE_ID)_usl_c_2.pdf: $(GUIDE_MD)
 $(GUIDE_ID)_a4_c_1.pdf: $(GUIDE_MD)
 	$(PREPROC) $^ $(PREPROC_MD)
 	pandoc $(PDF_OPTS) $(A4) $(ONESIDE) $(COLOR) $(PREPROC_MD)
+	$(FIX_QUOTES)
 	xelatex $(GUIDE_ID)_temp.tex
 	makeindex $(GUIDE_ID)_temp.idx
 	xelatex $(GUIDE_ID)_temp.tex
@@ -139,6 +146,7 @@ $(GUIDE_ID)_a4_c_1.pdf: $(GUIDE_MD)
 $(GUIDE_ID)_a4_c_2.pdf: $(GUIDE_MD)
 	$(PREPROC) $^ $(PREPROC_MD)
 	pandoc $(PDF_OPTS) $(A4) $(TWOSIDE) $(COLOR) $(PREPROC_MD)
+	$(FIX_QUOTES)
 	xelatex $(GUIDE_ID)_temp.tex
 	makeindex $(GUIDE_ID)_temp.idx
 	xelatex $(GUIDE_ID)_temp.tex
@@ -149,6 +157,7 @@ $(GUIDE_ID)_a4_c_2.pdf: $(GUIDE_MD)
 $(GUIDE_ID)_usl_bw_1.pdf: $(GUIDE_MD)
 	$(PREPROC) $^ $(PREPROC_MD)
 	pandoc $(PDF_OPTS) $(USLETTER) $(ONESIDE) $(BW) $(PREPROC_MD)
+	$(FIX_QUOTES)
 	xelatex $(GUIDE_ID)_temp.tex
 	makeindex $(GUIDE_ID)_temp.idx
 	xelatex $(GUIDE_ID)_temp.tex
@@ -159,6 +168,7 @@ $(GUIDE_ID)_usl_bw_1.pdf: $(GUIDE_MD)
 $(GUIDE_ID)_usl_bw_2.pdf: $(GUIDE_MD)
 	$(PREPROC) $^ $(PREPROC_MD)
 	pandoc $(PDF_OPTS) $(USLETTER) $(TWOSIDE) $(BW) $(PREPROC_MD)
+	$(FIX_QUOTES)
 	xelatex $(GUIDE_ID)_temp.tex
 	makeindex $(GUIDE_ID)_temp.idx
 	xelatex $(GUIDE_ID)_temp.tex
@@ -169,6 +179,7 @@ $(GUIDE_ID)_usl_bw_2.pdf: $(GUIDE_MD)
 $(GUIDE_ID)_a4_bw_1.pdf: $(GUIDE_MD)
 	$(PREPROC) $^ $(PREPROC_MD)
 	pandoc $(PDF_OPTS) $(A4) $(ONESIDE) $(BW) $(PREPROC_MD)
+	$(FIX_QUOTES)
 	xelatex $(GUIDE_ID)_temp.tex
 	makeindex $(GUIDE_ID)_temp.idx
 	xelatex $(GUIDE_ID)_temp.tex
@@ -179,6 +190,7 @@ $(GUIDE_ID)_a4_bw_1.pdf: $(GUIDE_MD)
 $(GUIDE_ID)_a4_bw_2.pdf: $(GUIDE_MD)
 	$(PREPROC) $^ $(PREPROC_MD)
 	pandoc $(PDF_OPTS) $(A4) $(TWOSIDE) $(BW) $(PREPROC_MD)
+	$(FIX_QUOTES)
 	xelatex $(GUIDE_ID)_temp.tex
 	makeindex $(GUIDE_ID)_temp.idx
 	xelatex $(GUIDE_ID)_temp.tex
@@ -191,6 +203,7 @@ $(GUIDE_ID)_lulu.md: $(GUIDE_MD)
 
 $(GUIDE_ID)_lulu.pdf: $(GUIDE_ID)_lulu.md
 	pandoc $(PDF_OPTS) $(TWOSIDE) $(CROWNQUARTO) $(BLANKLAST) $(COLOR) $(PREPROC_MD)
+	$(FIX_QUOTES)
 	xelatex $(GUIDE_ID)_temp.tex
 	makeindex $(GUIDE_ID)_temp.idx
 	xelatex $(GUIDE_ID)_temp.tex
@@ -203,6 +216,7 @@ $(GUIDE_ID)_amazon.md: $(GUIDE_MD)
 
 $(GUIDE_ID)_amazon.pdf: $(GUIDE_ID)_amazon.md
 	pandoc $(PDF_OPTS) $(TWOSIDE) $(SIZE_75x925_AMAZON) $(BLANKLAST) $(COLOR) $(GUIDE_ID)_amazon.md
+	$(FIX_QUOTES)
 	xelatex $(GUIDE_ID)_temp.tex
 	makeindex $(GUIDE_ID)_temp.idx
 	xelatex $(GUIDE_ID)_temp.tex
