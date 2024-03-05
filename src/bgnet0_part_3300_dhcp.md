@@ -2,7 +2,7 @@
 
 When you first open your laptop at the coffee shop, it doesn't have an
 IP address. It doesn't even know what IP address it _should_ have. Or
-what its name servers are. Or what its subnet mask is.
+what it's name servers are. Or what its subnet mask is.
 
 Of course, you could manually configure it! Just type in the numbers
 that the cashier hands you with your coffee!
