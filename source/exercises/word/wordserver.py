@@ -44,7 +44,7 @@ def build_word_packet(word_count):
     for _ in range(word_count):
         word = random.choice(WORDS)
         word_bytes = word.encode()
-        word_len = len(word)
+        word_len = len(word_bytes)
         word_len_bytes = word_len.to_bytes(WORD_LEN_SIZE, "big")
 
         word_packet += word_len_bytes + word_bytes
