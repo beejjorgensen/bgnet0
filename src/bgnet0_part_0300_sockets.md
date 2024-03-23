@@ -87,7 +87,7 @@ Writing a server program is a little bit different.
    port on that computer.
 
    Fun fact: clients are bound to a port, as well. If you don't
-   explicitly bind them, they get assigned an unused port when the
+   explicitly bind them, they get assigned an unused port when they
    connect--which is usually what we want.
 
 3. **Listen for incoming connections**. We have to let the OS know
