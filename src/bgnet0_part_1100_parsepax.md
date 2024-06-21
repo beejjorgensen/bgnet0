@@ -183,7 +183,7 @@ What if I call `recv(20)` and get this back:
 
 ``` {.default}
 Part 1. Part 2. Part
-````
+```
 
 Well, it still works! The `get_sentence()` function will see the first
 period in there, strip off the first sentence from the buffer so it
