@@ -116,17 +116,29 @@ on your path and filename, and then look at the last element.
 ``` {.py}
 fullpath = "/foo/bar/baz.txt"
 
-file = fullpath.spl
-os.path.split("/foo/bar/baz.txt")
+file_name = fullpath.split("/")[-1]
 ```
 
-returns a tuple with two elements, the second of which is the file name:
+A more portable way is to use the standard library function
+`os.path.split`. The value returned by `os.path.split` is will be a
+tuple with two elements, the second of which is the file name:
 
 ``` {.py}
-('/foo/bar', 'baz.txt')
+fullpath = "/foo/bar/baz.txt"
+
+os.path.split(fullpath)
+=> ('/foo/bar', 'baz.txt')
 ```
 
-Use that to just get the file name you want to serve.
+Select the last element:
+
+``` {.py}
+fullpath = "/foo/bar/baz.txt"
+
+file_name = os.path.split(fullpath)[-1]
+```
+
+Use that to get the file name you want to serve.
 
 ## MIME and Getting the `Content-Type`
 
