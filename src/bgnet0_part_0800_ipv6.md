@@ -40,7 +40,7 @@ For example:
 ```
 
 Slash notation is used for subnetting just like IPv4. Here's an example
-with 64`bits for network (as specified with `/64`) and 64`bits for host
+with 64 bits for network (as specified with `/64`) and 64 bits for host
 (since `128-64=64`):
 
 ``` {.default}
