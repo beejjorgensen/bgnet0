@@ -335,8 +335,8 @@ interview for a network-specific programming position.
   jackpot are approximately 300 million to 1. What are the odds of
   randomly picking my pre-selected 16-byte (128-bit) number?
 
-* Speculate on why IP is above TCP in the layered model. Why does the
-  TCP header go on before the IP header and not the other way around?
+* Speculate on why the IP header wraps up the TCP header in the layered
+  model, and not the other way around.
 
 * If UDP is unreliable and TCP is reliable, speculate on why one might
   ever use UDP.
