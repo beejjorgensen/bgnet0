@@ -78,7 +78,7 @@ Writing a server program is a little bit different.
 
    Caveat: programs that aren't run as root/administrator can't bind to
    ports under 1024--those are reserved. Choose a big, uncommon port
-   number for your servers, like something in the 15,0000-30,000 range.
+   number for your servers, like something in the 15,000-30,000 range.
    If you try to bind to a port another server is using, you'll get an
    "Address already in use" error.
 
