@@ -97,10 +97,10 @@ byte:
 ```
 
 Or in this example, where two bytes with values `17` and `178` represent
-the value `1920`:
+the value `4530`:
 
 ``` {.default}
-17 * 256 + 178 = 1920
+17 * 256 + 178 = 4530
 ```
 
 Neither `17` not `178` are larger than `255`, so they both fit in a
