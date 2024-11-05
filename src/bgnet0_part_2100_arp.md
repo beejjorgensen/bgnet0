@@ -44,7 +44,7 @@ destinations are ignored.
 
 But there's a way to override: the _broadcast frame_. This is a frame
 that has a destination MAC address of `ff:ff:ff:ff:ff:ff`. All devices
-on the LAN will received that frame.
+on the LAN will receive that frame.
 
 We're going to make use of this with ARP.
 
