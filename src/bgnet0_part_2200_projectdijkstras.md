@@ -17,6 +17,11 @@ We won't be using a real network for this. Rather, your program will
 read in a JSON file that contains the network description and then
 compute the route from that.
 
+## Banned Functions
+
+You're going to implement Dijkstra's yourself. No credit for using an
+existing library!
+
 ## Graphs Refresher
 
 Graphs are made of _vertices_ and _edges_. Sometimes vertices are called
