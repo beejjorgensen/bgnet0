@@ -57,7 +57,7 @@ We're going to connect some wires here, but _the link won't come up
 yet_. We'll deal with that in a minute.
 
 On the switch on LAN `192.168.0.0/24`, use a Copper Straight-Through
-connecter to connect the switch's `GigabitEthernet0/1` port to the
+connector to connect the switch's `GigabitEthernet0/1` port to the
 router's `GigabitEthernet0/0/0` port.
 
 On the switch on LAN `192.168.1.0/24`, use the same type of connector to
