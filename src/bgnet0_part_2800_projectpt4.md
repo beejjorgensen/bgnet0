@@ -66,8 +66,8 @@ The power switch is on the right side. Scroll over there and click it.
 Two of the Ethernet connectors are in the upper left. Just right of
 those, there are two more ports that we can plug components into.
 
-From the left sidebar, drag a "GLC-T" into one of those ports, as shown
-below:
+From the left sidebar, drag a "GLC-T" into the lower one of those ports
+(apparently it doesn't work in the upper one), as shown below:
 
 ![Adding a GLC-T component](adding-glc-component.png)
 
