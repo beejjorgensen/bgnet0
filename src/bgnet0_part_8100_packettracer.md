@@ -45,6 +45,9 @@ working, try this:
 
 Once installed, run it!
 
+If given the choice between "Net Academy" and "Skills for All" when
+logging in, choose "Skills for All".
+
 After launching Packet Tracer, you should see a bunch of circular
 objects with numbers below them in the lower middle panel.
 

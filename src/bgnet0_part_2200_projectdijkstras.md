@@ -17,6 +17,11 @@ We won't be using a real network for this. Rather, your program will
 read in a JSON file that contains the network description and then
 compute the route from that.
 
+## Banned Functions
+
+You're going to implement Dijkstra's yourself. No credit for using an
+existing library!
+
 ## Graphs Refresher
 
 Graphs are made of _vertices_ and _edges_. Sometimes vertices are called
@@ -36,10 +41,10 @@ example, the cities would be vertices, the highways would be edges, and
 the highway length would be the edge weight.
 
 When traversing a graph, the goal is to minimize the total of all the
-edge waits that you encounter along the way. On our map, the goal would
-be to choose edges from our starting city through all the intermediate
-cities to our destination city that had us driving the minimum total
-distance.
+edge weights that you encounter along the way. On our map, the goal
+would be to choose edges from our starting city through all the
+intermediate cities to our destination city that had us driving the
+minimum total distance.
 
 ## Dijkstra's Algorithm Overview
 

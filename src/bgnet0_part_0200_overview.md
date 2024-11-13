@@ -267,7 +267,7 @@ that is commonly used with Ethernet".
 
 ## Reflect
 
-* What kind of switched network is the Internet?
+* Is the Internet circuit-switched or packet-switched?
 
 * What is the relationship between a client program and a server
   program?
