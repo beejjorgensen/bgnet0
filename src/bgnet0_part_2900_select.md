@@ -152,17 +152,6 @@ none of the returned sockets are shown as ready.
 You can also specify a timeout of `0` if you want to just poll the
 sockets.
 
-## Reflect
-
-* Why can't we just call `recv()` on all the connected sockets? What
-  does `select()` buy us?
-
-* When `select()` shows a socket "ready-to-read", what does it mean if
-  the socket is a listening socket versus a non-listening socket?
-
-* Why do we have to add the listener socket to the set, anyway? Why not
-  just call `accept()` and then call `select()`?
-
 ## Using `select()` with `send()`
 
 If your computer tries to send too much too fast, the call to `send()`
@@ -178,3 +167,15 @@ second argument.
 
 And it'll work in much the same way as the "ready to read" set works,
 above.
+
+## Reflect
+
+* Why can't we just call `recv()` on all the connected sockets? What
+  does `select()` buy us?
+
+* When `select()` shows a socket "ready-to-read", what does it mean if
+  the socket is a listening socket versus a non-listening socket?
+
+* Why do we have to add the listener socket to the set, anyway? Why not
+  just call `accept()` and then call `select()`?
+

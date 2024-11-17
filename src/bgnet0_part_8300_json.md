@@ -110,7 +110,7 @@ Much cleaner.
 JSON requires strings and key names to be in double quotes. Single
 quotes won't cut it. Missing quotes _definitely_ won't cut it.
 
-## Review
+## Reflect
 
 * What's the difference between a JSON object and a Python dictionary?
 
