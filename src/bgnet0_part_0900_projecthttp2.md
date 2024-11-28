@@ -414,6 +414,7 @@ you're sending it out as the wrong MIME type! It should be
 
 <hr>
 </body>
+</html>
 ```
 
 The idea is that these URLs would retrieve the above files (with the
