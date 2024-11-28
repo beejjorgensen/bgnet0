@@ -406,11 +406,11 @@ the tradition. And then goes for a further sentence, besides.
 <h1>Test HTML</h1>
 
 <p>This is my test file that has <i>some</i> HTML in in that the browser
-should render as HTML.
+should render as HTML.</p>
 
 <p>If you're seeing HTML tags that look like this <tt>&lt;p&gt;</tt>,
 you're sending it out as the wrong MIME type! It should be
-<tt>text/html</tt>!
+<tt>text/html</tt>!</p>
 
 <hr>
 </body>
