@@ -2,7 +2,7 @@
 
 > "You won't know who to trust..."
 >
-> --Gregor Ivanovich, _Sneakers_
+> —Gregor Ivanovich, _Sneakers_
 
 When your server receives data from someone on the Internet, it's not
 good enough to trust that they have good intentions.
@@ -210,7 +210,7 @@ attacker's website.
 
 > "It would be bad."
 >
-> Egon Spengler, _Ghostbusters_
+> —Egon Spengler, _Ghostbusters_
 
 Most HTML-oriented libraries come with a function to sterilize strings
 so that the browser will render them and not interpret them (e.g. all
