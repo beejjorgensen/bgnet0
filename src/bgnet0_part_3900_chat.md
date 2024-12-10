@@ -248,6 +248,17 @@ make sure you have at least two bytes in your buffer so you can
 determine the JSON data length. And then after that, see if you have the
 length (plus 2 for the 2-byte header) in your buffer.
 
+If you don't, you'll have to keep receiving data in a loop until you
+have enough. Also remember that you might receive some data from the
+next packet in a single `recv()` call.
+
+Your code has to work no matter how many bytes are returned by `recv()`,
+even if it's more or fewer than you expected!
+
+**Have a `get_next_packet()` function** that will extract and return the
+next packet, like you've done in earlier projects. Abstracting the byte
+stream into packets like this will make your life easier.
+
 ## JSON Payloads
 
 If your JSON is rusty, check out the [Appendix: JSON](#appendix-json)
