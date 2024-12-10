@@ -259,6 +259,9 @@ even if it's more or fewer than you expected!
 next packet, like you've done in earlier projects. Abstracting the byte
 stream into packets like this will make your life easier.
 
+Also: be sure to use `sendall()` so that all the data you want sent
+actually gets sent!
+
 ## JSON Payloads
 
 If your JSON is rusty, check out the [Appendix: JSON](#appendix-json)
