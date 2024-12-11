@@ -71,7 +71,7 @@ basic latin letters, numbers, and punctuation, so your strings will all
 work as expected unless you start getting into some weird Unicode
 characters.
 
-If you're writing this is C, it's probably best just not to worry about
+If you're writing this in C, it's probably best just not to worry about
 it and print the bytes out as you get them. A few might be garbage, but
 it'll work for the most part.
 
