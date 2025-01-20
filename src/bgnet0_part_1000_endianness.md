@@ -125,7 +125,7 @@ from decimal to binary. All other concepts are identical.
 ``` {.default}
 00000000 11111101    represents  11111101 (253 decimal)
 00000000 11111110    represents  11111110 (254 decimal)
-00000000 11111111    represents  11111101 (255 decimal)
+00000000 11111111    represents  11111111 (255 decimal)
 00000001 00000000    represents 100000000 (256 decimal)
 00000001 00000001    represents 100000001 (257 decimal)
 00000001 00000010    represents 100000010 (258 decimal)
