@@ -386,7 +386,7 @@ doesn't get accidentally messed up!
   first join, but additions could be to add chat rooms, join or leave
   chat rooms, and list available chat rooms.
 
-* Turn the whole thing into a [MUD](https://en.wikipedia.org/wiki/MUD).
+* Turn the whole thing into a [MUD](https://en.wikipedia.org/wiki/Multi-user_dungeon).
   That should keep you busy!
 
 ## Some Recommendations
