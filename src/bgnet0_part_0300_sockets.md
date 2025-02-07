@@ -62,7 +62,7 @@ But they are:
 
    Data is sent as a sequence of bytes.
 
-5. Close the connection. When we're done, we close the socket indicating
+5. **Close the connection**. When we're done, we close the socket indicating
    to the remote side that we have nothing more to say. The remote side
    can also close the connection any time it wishes.
 
