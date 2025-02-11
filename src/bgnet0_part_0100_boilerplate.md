@@ -1,5 +1,5 @@
+# Foreword
 <!-- Beej's guide to Network Concepts
-
 # vim: ts=4:sw=4:nosi:et:tw=72
 -->
 
@@ -24,7 +24,6 @@
 [is[Carriage return==>see `\r` operator]]
 [is[Hexadecimal==>see `0x` hexadecimal]]
 -->
-# Foreword
 
 What is this? Well, it's a guide to a bunch of concepts that you might
 see in networking. It's not Network Programming in C---see [flbg[_Beej's
