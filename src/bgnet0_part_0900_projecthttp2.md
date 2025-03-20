@@ -332,7 +332,7 @@ challenge for greater understanding of the material. Push yourself!
   server root to get the path to the file.
 
   ``` {.py}
-  file_path = os.path.sep.join(server_root, get_path)
+  file_path = os.path.sep.join((server_root, get_path))
   ```
 
   So if they tried to `GET /foo/bar/index.html`, then `file_path` would
