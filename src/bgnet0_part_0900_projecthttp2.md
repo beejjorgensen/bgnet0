@@ -32,7 +32,7 @@ http://localhost:33490/file1.txt
 The client will send a request to your server that looks like this:
 
 ``` {.default}
-GET /file1.txt HTTP/1.1
+GET /file2.html HTTP/1.1
 Host: localhost
 Connection: close
 
@@ -55,7 +55,7 @@ The response will look like this example file:
 ``` {.default}
 HTTP/1.1 200 OK
 Content-Type: text/html
-Content-Length: 357
+Content-Length: 373
 Connection: close
 
 <!DOCtype html>
