@@ -189,7 +189,7 @@ The details are in this week's project.
 _Flow Control_ is the mechanism by which two communicating devices alert
 one another that data needs to be sent more slowly. You can't pour 1000
 Mbs (megabits per second) at a device that can only handle 100 Mbs. The
-device needs a way to alert the sender that to slow it down.
+device needs a way to alert the sender to slow it down.
 
 > Analogy time: you do this on the phone when you tell the other party
 > "You're talking too fast for me to understand! Slow down!"
