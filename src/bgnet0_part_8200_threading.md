@@ -270,7 +270,7 @@ The main thread will:
 
   * The result array, where the thread will store the result.
 
-  * The main thread should keep track of all the thread objects returned
+* The main thread should keep track of all the thread objects returned
     from `threading.Thread()` in an array. It'll need them in the next
     step.
 
