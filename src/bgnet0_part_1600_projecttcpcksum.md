@@ -168,7 +168,8 @@ The last part is interesting, because the IP addresses aren't in the TCP
 header or data at all, so how do we get them included in the checksum?
 
 A TCP checksum is a two-byte number that is computed like this, given
-TCP header data, the payload, and the source and IP addresses:
+TCP header data, the payload, and the source and destination IP
+addresses:
 
 * Build a sequence of bytes representing the IP Pseudo header (see
   below).
