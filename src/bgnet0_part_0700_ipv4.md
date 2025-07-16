@@ -136,7 +136,7 @@ bits](https://en.wikipedia.org/wiki/Nibble) with host number 2 (which is
 Giving the IP address `198.51.100.98`.
 
 All the IP addresses on this subnet are, exhaustively `198.51.100.96`
-through `198.51.100.111` (though these first are last IPs are reserved
+through `198.51.100.111` (though these first and last IPs are reserved
 and broadcast, respectively).
 
 Finally, if you have a subnet you own, there's nothing stopping you for
