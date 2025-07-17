@@ -26,7 +26,7 @@ If you go to your browser and enter a URL like this (substituting the
 port number of your running server):
 
 ``` {.default}
-http://localhost:33490/file1.txt
+http://localhost:33490/file2.html
 ```
 
 The client will send a request to your server that looks like this:
@@ -79,7 +79,7 @@ of files: HTML and text files.
 
 ## Parsing the Request Header
 
-You'll want to read in the full request header, so your probably doing
+You'll want to read in the full request header, so you're probably doing
 something like accumulating data from all your `recv()`s in a single
 variable and searching it (with something like string's `.find()` method
 to find the `"\r\n\r\n"` that marks the end of the header.
