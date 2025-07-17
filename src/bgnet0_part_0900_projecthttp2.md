@@ -26,7 +26,7 @@ If you go to your browser and enter a URL like this (substituting the
 port number of your running server):
 
 ``` {.default}
-http://localhost:33490/file1.txt
+http://localhost:33490/file2.html
 ```
 
 The client will send a request to your server that looks like this:
