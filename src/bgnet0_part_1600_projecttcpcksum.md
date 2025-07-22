@@ -349,7 +349,7 @@ We're getting there. So far we've done these steps:
 * Extract the checksum from the existing TCP header
 * Build a version of the TCP header with a zero checksum
 
-And now we get to the do the math. Here's what the spec says to do:
+And now we get to do the math. Here's what the spec says to do:
 
 > The checksum field is the 16 bit one's complement of the one's
 > complement sum of all 16 bit words in the header and text.
