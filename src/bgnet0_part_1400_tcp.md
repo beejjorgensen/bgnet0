@@ -213,7 +213,7 @@ packet.
 
 In that field, the data receiver can specify how much more data (in
 bytes) it is willing to receive. The sender must not send more than this
-without before getting an ACK from the receiver. And the ACK it gets
+without getting an ACK from the receiver. And the ACK it gets
 will contain new window information.
 
 Using the mechanism, the receiver can get the sender "once you've sent X

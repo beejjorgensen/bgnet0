@@ -4,7 +4,7 @@ This is a project that is all about reading packets.
 
 You'll receive a stream of encoded data from a server (provided) and
 you'll have to write code to determine when you've received a complete
-packet and the print out that data.
+packet and then print out that data.
 
 ## Overview
 
