@@ -60,7 +60,7 @@ Some of these you have at home or on your computer already.
   at your house. Think of a single IP subnet.
 
 * **WAN**: Wide Area Network. Network that's not LAN. Think of a
-  collection of LANs on University of company campus.
+  collection of LANs on University or company campus.
 
 * **Dynamic IP**: This is when your IP gets set automatically with
   [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol),
