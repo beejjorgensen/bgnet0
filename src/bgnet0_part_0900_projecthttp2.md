@@ -15,7 +15,7 @@ project may **not** use any of the following helper functions:
 
 * The `socket.create_connection()` function.
 * The `socket.create_server()` function.
-* Anything in the `urllib` modules.
+* Anything in the `urllib` modules (except `urllib.parse`—that's OK).
 
 After coding up the project, it should be more obvious how these helper
 functions are implemented.
