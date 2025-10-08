@@ -125,8 +125,8 @@ Like with IPv4, there are a lot of addresses that have special meaning.
 * **`2001:db8::/32`** - for use in documentation
 * **`fe80::/10`** - link local address
 
-There are IPv6 ranges with special meanings, but those are the common
-ones you'll see.
+There are other IPv6 ranges with special meanings, but those are the
+common ones you'll see.
 
 ## IPv6 and DNS
 
