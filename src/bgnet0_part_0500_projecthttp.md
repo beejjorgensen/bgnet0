@@ -182,7 +182,7 @@ Notice how the first part of the output is the HTTP response with all
 those fields from the server, and then there's a blank line, and
 everything following the blank line is the response payload.
 
-ALSO: you need to be able specify a port number to connect to on the
+**ALSO**: you need to be able specify a port number to connect to on the
 command line. This defaults to port 80 if not specified. So you could
 connect to a webserver on a different port like so:
 
@@ -260,7 +260,8 @@ $ python webserver.py
 
 and that should start it listening on port 28333.
 
-Code it so we could also specify an optional port number like this:
+**ALSO** code it so we could also specify an optional port number like
+this:
 
 ``` {.sh}
 $ python webserver.py 12399

@@ -20,6 +20,17 @@ project may **not** use any of the following helper functions:
 After coding up the project, it should be more obvious how these helper
 functions are implemented.
 
+## Running the Server
+
+Just like in the previous project, the server should start listening on
+port 28333 ***unless*** the user specifies a port on the command line.
+E.g.:
+
+``` {.sh}
+$ python webserver.py       # Listens on port 28333
+$ python webserver.py 3490  # Listens on port 3490
+```
+
 ## The Process
 
 If you go to your browser and enter a URL like this (substituting the
