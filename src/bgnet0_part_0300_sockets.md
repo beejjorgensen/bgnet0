@@ -113,6 +113,82 @@ Writing a server program is a little bit different.
 6. **Go back and accept another connection**. Servers tend to be
    long-running processes and handle many requests over their lifetimes.
 
+## Client API Code
+
+The client needs to `import socket` to work.
+
+1. Creating a socket object:
+
+   ```
+   s = socket.socket()
+   ```
+
+2. Connecting to a host and port (also does the DNS lookup):
+
+   ```
+   s.connect(("example.com", 80))
+   ```
+
+   ((The argument is a tuple, so it needs the extra parentheses.))
+
+3. Sending and receiving data:
+
+   ```
+   s.send(some_data)    # Might do a partial send
+   s.sendall(some_data) # Send it all!
+   data = s.recv(128)   # Receive at most 128 bytes
+   ```
+
+4. Closing a connection:
+
+   ```
+   s.close()
+   ```
+
+## Server API Code
+
+The server needs to `import socket` to work.
+
+1. Creating a socket object (just like the client does):
+
+   ```
+   s = socket.socket()
+   ```
+
+2. Binding the listening socket to an address and port:
+
+   ```
+   s.bind(("localhost", 3490))
+   ```
+
+   Again with the extra parens to make it a tuple. `"localhost"` just
+   means "this computer this program is running on", and you'd enter it
+   literally as `"localhost"`. I chose port `3490` at random.
+
+3. Tell the socket to listen for incoming connections:
+
+   ```
+   s.listen()
+   ```
+
+4. Accept incoming connections; this is usually done in a loop:
+
+   ```
+   client_socket, client_addr = s.accept()
+   ```
+
+   Your server will *block* (sleep) here until a new connection comes
+   in.
+
+5. Send and receive data on the new client socket, just like with the
+   client code, above.
+
+   ```
+   cs.send(some_data)    # Might do a partial send
+   cs.sendall(some_data) # Send it all!
+   data = cs.recv(128)   # Receive at most 128 bytes
+   ```
+
 ## Reflect
 
 * What role does `bind()` play on the server side?
