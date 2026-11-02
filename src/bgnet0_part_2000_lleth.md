@@ -155,7 +155,7 @@ Wired Ethernet uses something called
 (Carrier-Sense Multiple Access with Collision Detection). Easy for you
 to say.
 
-This method works like this:
+This method classically worked like this:
 
 1. The Ethernet card waits for quiet in the room--when no other network
    card is transmitting. (This is the "CSMA" part of CSMA/CD.)
@@ -174,13 +174,13 @@ This method works like this:
    called the "jam signal" to alert other cards on the network that a
    collision has occurred and they should stop transmitting. The network
    card then waits a small, partly random amount of time, and then goes
-   back to step 1 to retry the transmission.
+   back to step 1 to retry the transmission. It also causes *all* nodes
+   to stop transmitting, whereas without it there might be a jumble of
+   invalid traffic until it sorted itself out.
 
-   Even though the checksum would probably fail, there's a slim chance of a
-   checksum collision. The jam signal prevents this from happening. It
-   also causes *all* nodes to stop transmitting, whereas without it
-   there might be a jumble of invalid traffic until it sorted itself
-   out.
+In modern systems, the collision problem has been mitigated by the use
+of switches and full-duplex connections. But I bring it up, above,
+because I think it's so neat.
 
 WiFi (wireless) Ethernet uses something similar, except it's
 [CSMA/CA](https://en.wikipedia.org/wiki/Carrier-sense_multiple_access_with_collision_avoidance)
@@ -192,8 +192,8 @@ This method works like this:
 1. The Ethernet card waits for quiet in the room--when no other network
    card is transmitting. (This is the "CSMA" part of CSMA/CA.)
   
-2. If the channel isn't quiet, the network card waits a small, random
-   amount of time, then goes back to step 1 to retry.
+2. If the channel is quiet, the network card waits a small, random
+   amount of time, then transmits.
 
 There are a few more details omitted there, but that's the gist of it.
 
