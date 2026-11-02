@@ -176,6 +176,12 @@ This method works like this:
    card then waits a small, partly random amount of time, and then goes
    back to step 1 to retry the transmission.
 
+   Even though the checksum would probably fail, there's a slim chance of a
+   checksum collision. The jam signal prevents this from happening. It
+   also causes *all* nodes to stop transmitting, whereas without it
+   there might be a jumble of invalid traffic until it sorted itself
+   out.
+
 WiFi (wireless) Ethernet uses something similar, except it's
 [CSMA/CA](https://en.wikipedia.org/wiki/Carrier-sense_multiple_access_with_collision_avoidance)
 (Carrier-Sense Multiple Access with Collision Avoidance). Also easy for
@@ -190,6 +196,11 @@ This method works like this:
    amount of time, then goes back to step 1 to retry.
 
 There are a few more details omitted there, but that's the gist of it.
+
+There's no collision detection on WiFi—the transmitting radio
+overwhelms other signals so it only ever hears itself. What it does
+instead is wait for an acknowledgment packet from the receiver. If it
+doesn't get one, it exponentially backs off and tries again.
 
 ## Ethernet
 
