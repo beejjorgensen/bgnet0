@@ -20,9 +20,11 @@ A document that contains 4 things:
 
 2. Your IP address of your currently active connection.
 
-3. A human-readable WireShark packet capture of an ARP request.
+3. A human-readable WireShark packet capture of an ARP request. (See the
+   example, below.)
 
-4. A human-readable WireShark packet capture of an ARP reply.
+4. A human-readable WireShark packet capture of an ARP reply. (See the
+   example, below.)
 
 Details below!
 
@@ -130,7 +132,8 @@ Here's what we'll do:
    Right click any line in that panel and select "Copy->All Visible
    Items".
 
-   Here's an example request (truncated for line length):
+   Here's an example request that you can get by looking in the lower
+   left frame in Wireshark (truncated for line length):
 
    ``` {.default}
    Frame 221567: 42 bytes on wire (336 bits), 42 bytes captured  [...]
@@ -166,6 +169,24 @@ Here's what we'll do:
        Target MAC address: HonHaiPr_df:20:85 (ac:d1:b8:df:20:85)
        Target IP address: 192.168.1.230
    ```
+
+## Clearing and Viewing Your ARP Cache
+
+Windows in an admin PowerShell:
+
+* **View**: `arp -a`
+* **Clear**: `arp -d *`
+
+Mac:
+
+* **View**: `arp -a`
+* **Clear**: `sudo arp -a -d`
+
+Linux:
+
+* **View**: `ip neigh` or `arp -a`
+* **Clear**: `sudo ip neigh flush all` or individually with `arp -d [ip
+  addr]`
 
 <!--
 
