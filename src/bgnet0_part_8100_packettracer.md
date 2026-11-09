@@ -48,6 +48,8 @@ Once installed, run it!
 If given the choice between "Net Academy" and "Skills for All" when
 logging in, choose "Skills for All".
 
+When asked if you want to start multiuser, you can say "No".
+
 After launching Packet Tracer, you should see a bunch of circular
 objects with numbers below them in the lower middle panel.
 
