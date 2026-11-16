@@ -292,7 +292,7 @@ From client to server:
 
 ``` {.json}
 {
-    "type": "hello"
+    "type": "hello",
     "nick": "[user nickname]"
 }
 ```
@@ -308,7 +308,7 @@ From client to server:
 
 ``` {.json}
 {
-    "type": "chat"
+    "type": "chat",
     "message": "[message]"
 }
 ```
@@ -317,8 +317,8 @@ From server to clients:
 
 ``` {.json}
 {
-    "type": "chat"
-    "nick": "[sender nickname]"
+    "type": "chat",
+    "nick": "[sender nickname]",
     "message": "[message]"
 }
 ```
@@ -333,7 +333,7 @@ The server sends this to all the clients when someone joins the chat.
 
 ``` {.json}
 {
-    "type": "join"
+    "type": "join",
     "nick": "[joiner's nickname]"
 }
 ```
@@ -344,7 +344,7 @@ The server sends this to all the clients when someone leaves the chat.
 
 ``` {.json}
 {
-    "type": "leave"
+    "type": "leave",
     "nick": "[leaver's nickname]"
 }
 ```
