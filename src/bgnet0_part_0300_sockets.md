@@ -184,9 +184,9 @@ The server needs to `import socket` to work.
    client code, above.
 
    ```
-   cs.send(some_data)    # Might do a partial send
-   cs.sendall(some_data) # Send it all!
-   data = cs.recv(128)   # Receive at most 128 bytes
+   client_socket.send(some_data)    # Might do a partial send
+   client_socket.sendall(some_data) # Send it all!
+   data = client_socket.recv(128)   # Receive at most 128 bytes
    ```
 
 ## Reflect
